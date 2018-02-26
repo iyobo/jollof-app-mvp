@@ -40,7 +40,7 @@ jspm_packages
 
 .idea
 
-config/development.js
+# config/development.js
 uploads/public/*
 
 dump.rdb

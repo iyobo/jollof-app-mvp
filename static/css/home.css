@@ -10,7 +10,7 @@
 }
 
 body#background {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('../img/jollof.png') no-repeat 50% 50% fixed;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('/static/img/jollof.png') no-repeat 50% 50% fixed;
     background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -24,12 +24,12 @@ a{
 
 .maincover{
     margin: auto;
-    top: 30%;
+    top: 10%;
     right: 0;
     bottom: 0;
     left: 0;
     position: absolute;
-    width: 800px;
+    /*width: 800px;*/
     color: white;
 
     text-align: center;
@@ -41,8 +41,8 @@ a{
 }
 
 .title{
-    font-size: 70px;
-
+    font-size: 40px;
+    font-weight: 100;
 }
 
 .subtitle{
@@ -83,5 +83,16 @@ a{
     font-weight: 800;
 
     display: inline-block;
+
+}
+
+.backLink {
+    position: absolute;
+    top: 0px;
+    left: 5px;
+}
+.backLink a{
+    color: #9a9a9a;
+    font-weight: 400;
 
 }

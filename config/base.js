@@ -24,7 +24,7 @@ module.exports = {
                 adapter: require('jollof-data-mongodb'),
                 nativeType: 'mongodb',
                 options: {
-                    mongoUrl: 'mongodb://localhost/jollofdb'
+                    mongoUrl: 'mongodb://localhost/jollofmvp'
                 }
             }
         }
@@ -126,16 +126,16 @@ module.exports = {
      */
     passport: {
         facebook: {
-            clientID: '2014721635452942',
-            clientSecret: '20f90430f296be0938541fc42fa4ceef',
+            clientID: 'abc',
+            clientSecret: 'abcd',
         },
         google: {
-            clientID: '229559720846-875tn4mc6us1ahbr4gutt2p8qc20d5jv.apps.googleusercontent.com',
-            clientSecret: 'Vp6Tr_46NxfzQndjdPIfKyBJ',
+            clientID: 'abc',
+            clientSecret: 'abcd',
         },
         instagram: {
-            clientID: '9677d432f5324afeae426817e0e7b111',
-            clientSecret: '7ce7298c2a0c4924ae71adec0e7a191d',
+            clientID: 'abc',
+            clientSecret: 'abcd',
         }
     }
 }

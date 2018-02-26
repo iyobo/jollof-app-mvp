@@ -19,11 +19,6 @@
          @include box-shadow(none);
          outline: 0 !important;
     }
-    
-    &.btn-icon{
-        padding: $padding-base-vertical;
-    }
-    
 }
 
 // Apply the mixin to the buttons
@@ -66,19 +61,11 @@
     border-width: $border-thin;
     border-radius: $btn-round-radius !important;
     padding: $padding-round-vertical $padding-round-horizontal;
-    
-    &.btn-icon{
-        padding: $padding-round-vertical;
-    }
 }
 .btn-simple{
     border: $none;
     font-size: $font-size-medium;
     padding: $padding-base-vertical $padding-base-horizontal;
-    
-    &.btn-icon{
-        padding: $padding-base-vertical;
-    }
 }
 .btn-lg{
    @include btn-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $border-radius-large);
@@ -93,7 +80,6 @@
 .btn-wd {
     min-width: 140px;
 }
-
 .btn-group.select{
     width: 100%;
 }

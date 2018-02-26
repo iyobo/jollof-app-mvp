@@ -18,7 +18,7 @@
     > li.active > a:hover,
     > li.active > a:focus {
         background-color: $info-color;
-        color: #FFFFFF;
+        color: #FFFFFF !important;
     }
     > li:first-child > a{
         border-radius: $border-radius-base 0 0 $border-radius-base;
@@ -28,18 +28,8 @@
         border-radius: 0 $border-radius-base $border-radius-base 0;
     }
 }
-.nav-stacked{
-    > li:first-child > a{
-        border-radius: $border-radius-base $border-radius-base 0 0;
-        margin-left: -1px;
-    }
-    > li:last-child > a{
-        border-radius: 0 0 $border-radius-base $border-radius-base;
-    }
-    >li+li{
-        margin-top: -1px;
-    }
-}
+
+// style for pagination
 .pagination.pagination-no-border > li > a,
 .pagination.pagination-no-border > li > span{
     border: 0;
@@ -56,162 +46,77 @@
     padding: 7px 13px;
 }
 
-.nav-pills-blue > li.active > a,
-.nav-pills-blue > li.active > a:hover,
-.nav-pills-blue > li.active > a:focus,
-.pagination-blue > li.active > a,
-.pagination-blue > li.active > span,
-.pagination-blue > li.active > a:hover,
-.pagination-blue > li.active > span:hover,
-.pagination-blue > li.active > a:focus,
-.pagination-blue > li.active > span:focus{
+.nav-pills.ct-blue > li.active > a,
+.nav-pills.ct-blue > li.active > a:hover,
+.nav-pills.ct-blue > li.active > a:focus,
+.pagination.ct-blue > li.active > a,
+.pagination.ct-blue > li.active > span,
+.pagination.ct-blue > li.active > a:hover,
+.pagination.ct-blue > li.active > span:hover,
+.pagination.ct-blue > li.active > a:focus,
+.pagination.ct-blue > li.active > span:focus{
    background-color: $primary-color;
 }
 
-.nav-pills-azure > li.active > a,
-.nav-pills-azure > li.active > a:hover,
-.nav-pills-azure > li.active > a:focus,
-.pagination-azure > li.active > a,
-.pagination-azure > li.active > span,
-.pagination-azure > li.active > a:hover,
-.pagination-azure > li.active > span:hover,
-.pagination-azure > li.active > a:focus,
-.pagination-azure > li.active > span:focus{
+.nav-pills.ct-azzure > li.active > a,
+.nav-pills.ct-azzure > li.active > a:hover,
+.nav-pills.ct-azzure > li.active > a:focus,
+.pagination.ct-azzure > li.active > a,
+.pagination.ct-azzure > li.active > span,
+.pagination.ct-azzure > li.active > a:hover,
+.pagination.ct-azzure > li.active > span:hover,
+.pagination.ct-azzure > li.active > a:focus,
+.pagination.ct-azzure > li.active > span:focus{
    background-color: $info-color;
 }
 
-.nav-pills-green >  li.active > a,
-.nav-pills-green >  li.active > a:hover,
-.nav-pills-green >  li.active > a:focus,
-.pagination-green > li.active > a,
-.pagination-green > li.active > span,
-.pagination-green > li.active > a:hover,
-.pagination-green > li.active > span:hover,
-.pagination-green > li.active > a:focus,
-.pagination-green > li.active > span:focus{
+.nav-pills.ct-green >  li.active > a,
+.nav-pills.ct-green >  li.active > a:hover,
+.nav-pills.ct-green >  li.active > a:focus,
+.pagination.ct-green > li.active > a,
+.pagination.ct-green > li.active > span,
+.pagination.ct-green > li.active > a:hover,
+.pagination.ct-green > li.active > span:hover,
+.pagination.ct-green > li.active > a:focus,
+.pagination.ct-green > li.active > span:focus{
    background-color: $success-color;
 }
 
-.nav-pills-orange > li.active > a,
-.nav-pills-orange > li.active > a:hover,
-.nav-pills-orange > li.active > a:focus,
-.pagination-orange > li.active > a,
-.pagination-orange > li.active > span,
-.pagination-orange > li.active > a:hover,
-.pagination-orange > li.active > span:hover,
-.pagination-orange > li.active > a:focus,
-.pagination-orange > li.active > span:focus{
+.nav-pills.ct-orange > li.active > a,
+.nav-pills.ct-orange > li.active > a:hover,
+.nav-pills.ct-orange > li.active > a:focus,
+.pagination.ct-orange > li.active > a,
+.pagination.ct-orange > li.active > span,
+.pagination.ct-orange > li.active > a:hover,
+.pagination.ct-orange > li.active > span:hover,
+.pagination.ct-orange > li.active > a:focus,
+.pagination.ct-orange > li.active > span:focus{
    background-color: $warning-color;
 }
 
-.nav-pills-red > li.active > a,
-.nav-pills-red > li.active > a:hover,
-.nav-pills-red > li.active > a:focus,
-.pagination-red > li.active > a,
-.pagination-red > li.active > span,
-.pagination-red > li.active > a:hover,
-.pagination-red > li.active > span:hover,
-.pagination-red > li.active > a:focus,
-.pagination-red > li.active > span:focus{
+.nav-pills.ct-red > li.active > a,
+.nav-pills.ct-red > li.active > a:hover,
+.nav-pills.ct-red > li.active > a:focus,
+.pagination.ct-red > li.active > a,
+.pagination.ct-red > li.active > span,
+.pagination.ct-red > li.active > a:hover,
+.pagination.ct-red > li.active > span:hover,
+.pagination.ct-red > li.active > a:focus,
+.pagination.ct-red > li.active > span:focus{
    background-color: $danger-color;
 }
-.nav-pills-blue > li > a {
+.nav-pills.ct-blue > li > a {
     @include pill-style($primary-color);
 }
-.nav-pills-azure > li > a {
+.nav-pills.ct-azzure > li > a {
     @include pill-style($info-color);
 }
-.nav-pills-green > li > a {
+.nav-pills.ct-green > li > a {
     @include pill-style($success-color);
 }
-.nav-pills-orange > li > a {
+.nav-pills.ct-orange > li > a {
     @include pill-style($warning-color);
 }
-.nav-pills-red > li > a {
+.nav-pills.ct-red > li > a {
     @include pill-style($danger-color);
-}
-
-.nav-text, .nav-icons{
-    margin: $margin-bottom;
-
-    > li > a{
-        display: block;
-        padding: 0px $padding-base-horizontal;
-        color: $dark-gray;
-        text-align: center;
-        @include opacity(0.8);
-
-        &:hover,
-        &:focus{
-            background-color: $transparent-bg;
-            @include opacity(1);
-        }
-    }
-    > li:first-child a{
-        padding-left: 0;
-    }
-    > li.active a{
-       color: $info-color;
-    }
-}
-.nav-icons > li{
-    display: inline-block;
-     > a{
-        padding: 0 10px;
-        margin-bottom: 10px;
-    }
-    > a i{
-        font-size: $font-size-h4;
-        margin-bottom: 10px;
-        width: $font-size-h4;
-    }
-}
-.nav-icons.nav-stacked > li{
-    display: block;
-    > a {
-        margin-bottom: 20px;
-    }
-}
-.nav-blue > li.active a{
-    color: $primary-color;
-}
-.nav-azure > li.active a{
-    color: $info-color;
-}
-.nav-green > li.active a{
-    color: $success-color;
-}
-.nav-orange > li.active a{
-    color: $warning-color;
-}
-.nav-red > li.active a{
-    color: $danger-color;
-}
-
-.nav-text{
-    margin: $margin-bottom;
-
-    > li > a{
-        font-size: $font-size-h6;
-        text-transform: uppercase;
-        padding: 3px 0;
-        text-align: left;
-        font-weight: $font-weight-semi;
-
-    }
-    > li:first-child > a{
-        padding-top: 0;
-    }
-    h4{
-        margin-top: 0;
-    }
-}
-
-.nav-text:not(.nav-stacked){
-    > li{
-        display: inline-block;
-    }
-    > li > a{
-        margin-right: 15px;
-    }
 }

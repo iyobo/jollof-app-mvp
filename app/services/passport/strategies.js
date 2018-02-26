@@ -1,5 +1,5 @@
 const jollof = require('jollof');
-const config = rjollof.config;
+const config = jollof.config;
 const sendWelcomeUserEmail = require('../mailService').sendWelcomeUserEmail;
 const User = jollof.models.User;
 const UserIdentity = jollof.models.UserIdentity;

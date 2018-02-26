@@ -2,7 +2,7 @@
 
 .login-page {
     width: 360px;
-    padding: 3% 0 0;
+    padding: 8% 0 0;
     margin: auto;
 }
 .form {
@@ -10,7 +10,7 @@
     z-index: 1;
     background: #FFFFFF;
     max-width: 360px;
-    margin: 0 auto 0;
+    margin: 0 auto 100px;
     padding: 45px;
     text-align: center;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
@@ -87,7 +87,6 @@
 .container .info span .fa {
     color: #EF3B3A;
 }
-
 body {
     background: #76b852; /* fallback for old browsers */
     background: -webkit-linear-gradient(right, #76b852, #8DC26F);
@@ -97,93 +96,4 @@ body {
     font-family: "Roboto", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-}
-
-.logmod__alter {
-    display: block;
-    position: relative;
-    margin-top: 30px;
-}
-.logmod__alter::after {
-    clear: both;
-    content: "";
-    display: table;
-}
-.logmod__alter .connect:last-child {
-    border-radius: 0 0 4px 4px;
-}
-
-.logmod__alter .connect:last-child {
-    border-radius: 0 0 4px 4px;
-}
-
-a {
-    font-size: 18px;
-}
-.connect {
-    overflow: hidden;
-    position: relative;
-    display: block;
-    width: 100%;
-    text-decoration: none;
-}
-.connect::after {
-    clear: both;
-    content: "";
-    display: table;
-}
-.connect:focus, .connect:hover, .connect:visited {
-    color: #FFF;
-    text-decoration: none;
-}
-.connect__icon {
-    vertical-align: middle;
-    float: left;
-    text-align: center;
-    font-size: 22px;
-    width: 25px;
-    padding: 15px;
-}
-
-.connect__context {
-    vertical-align: middle;
-    text-align: center;
-    padding: 18px 0;
-    font-weight: 100;
-    font-size: 15px;
-}
-
-.connect.facebook {
-    background: #3b5998;
-    color: #FFF;
-}
-
-.connect.facebook a {
-    color: #FFF;
-}
-
-.connect.facebook .connect__icon {
-    background: #283d68;
-}
-
-.connect.googleplus {
-    background: #dd4b39;
-    color: #FFF;
-}
-
-.connect.googleplus a {
-    color: #FFF;
-}
-
-.connect.googleplus .connect__icon {
-    background: #b52f1f;
-}
-
-.connect.instagram {
-    background: #5851db;
-    color: #FFF;
-}
-
-.connect.instagram .connect__icon {
-    background: #3f3b96;
 }

@@ -8,7 +8,7 @@
         background-color: $white-color;
         border-color: $white-color;
     }
-    .panel-group .panel{
+    .panel{
         border-radius: 0;
     }
     .panel-title{
@@ -22,6 +22,7 @@
         height: 0px;
         visibility: visible;
         overflow: hidden;
+        transition: all 400ms;
     }
     .panel-title a:hover,
     .panel-title a:focus{

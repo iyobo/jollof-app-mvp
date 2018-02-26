@@ -8,10 +8,6 @@
     > li > a {
        padding: $padding-base-vertical $padding-base-horizontal;
        color: #333333;
-
-       img{
-           margin-top: -3px;
-       }
     }
     > li > a:focus{
         outline: 0 !important;
@@ -42,52 +38,8 @@
             background-color: $info-bg;
         }
     }
-
-
-    &.dropdown-blue > li > a:hover,
-    &.dropdown-blue > li > a:focus{
-        background-color: $light-blue;
-    }
-    &.dropdown-azure > li > a:hover,
-    &.dropdown-azure > li > a:focus{
-        background-color: $light-azure;
-    }
-    &.ct-green > li > a:hover,
-    &.ct-green > li > a:focus{
-        background-color: $light-green;
-    }
-    &.dropdown-orange > li > a:hover,
-    &.dropdown-orange > li > a:focus{
-        background-color: $light-orange;
-    }
-    &.dropdown-red > li > a:hover,
-    &.dropdown-red > li > a:focus{
-        background-color: $light-red;
-    }
 }
 
-.dropdown-with-icons{
-    > li > a{
-        position: relative;
-        padding-left: 48px;
-        line-height: 28px;
-    }
-    i{
-        text-align: center;
-        line-height: 28px;
-        position: absolute;
-        left: 0;
-
-        &[class^="pe-"]{
-             font-size: 24px;
-             width: 46px;
-        }
-        &[class^="fa"]{
-            font-size: 14px;
-            width: 38px;
-        }
-    }
-}
 
 //fix bug for the select items in btn-group
 .btn-group.select{
@@ -96,3 +48,4 @@
 .btn-group.select.open{
     overflow: visible;
 }
+

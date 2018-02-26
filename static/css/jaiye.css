@@ -1,0 +1,84 @@
+.navbar {
+    background: black;
+}
+
+.navbar .navbar-brand{
+    margin: 10px;
+    padding: 0;
+}
+
+.nav-logo {
+    height: 50px;
+}
+
+.faajii-orange {
+    color: #f26629;
+}
+
+.location-background{
+    background-position: bottom;
+    background-size: cover;
+    color: white;
+    padding: 8em 0;
+}
+
+.event .price {
+    padding: 10px;
+    background-color: rgba(255,255,255, 0.8);
+    /*width: 500px;*/
+    /*font-weight: 500;*/
+    font-size: 20px;
+    /*height: 50px;*/
+    text-align: left;
+}
+
+.margin-y {
+    margin: 1.5em 0;
+}
+
+.ticket-purchaser-detail{
+    font-family: Source Code Pro, Consolas, Menlo, monospace
+}
+
+.ticket-purchaser-detail:focus{
+    border: 1px solid #dddddd;
+}
+
+#cc-pay {
+    margin-right: 2em;
+}
+
+i.payment-card{
+    font-size: 2.2rem;
+    position: relative;
+    padding-right: 1.4em;
+    top: 1px;
+}
+
+.paypal{
+    height: 1.2em;
+}
+
+.backLink{
+    color: white;
+    font-weight: 400;
+
+}
+
+.breadcrumbs {
+    font-size: 40px;
+}
+
+.navbar {
+    font-weight: 800;
+    font-size: 18px;
+}
+
+.navbar .btn{
+    font-weight: 800;
+    font-size: 18px;
+}
+
+footer .h5{
+    font-weight: 800;
+}

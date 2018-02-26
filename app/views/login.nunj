@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JollofJS: Login</title>
+    <link rel="stylesheet" href="/static/css/animate.css"/>
+    <link rel="stylesheet" href="/static/css/home.css"/>
+    <link rel="stylesheet" href="/static/css/login.css"/>
+    <link rel="stylesheet" href="/static/css/toastr.min.css"/>
+
+    <!--     Fonts and icons     -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Economica|News+Cycle|Grand+Hotel|Open+Sans:400,300'
+          rel='stylesheet' type='text/css'>
+</head>
+<body id="background">
+<header>
+    <div class="maincover">
+        <div class="title">
+            <span>Login</span>
+        </div>
+        <div class="backLink">
+            <a href="javascript:window.history.back();"><i class="fa fa-arrow-left"></i> Back </a>
+        </div>
+        <div class="login-page">
+
+            <div class="form">
+                <div id="msg" style="color: orangered; padding:2px;"></div>
+                <form id="loginform" class="login-form" >
+                    <input type="hidden" name="_csrf" value="{{ csrf }}" />
+                    <input name="username" type="text" placeholder="Email or Username"/>
+                    <input name="password" type="password" placeholder="password"/>
+                    <input id="signupBtn" type="submit" class='button' value="Login" />
+                    <p class="message">Not registered? <a  href="/signup">Sign Up</a></p>
+                </form>
+                <div class="logmod__alter">
+                    <div class="logmod__alter-container">
+                        <a href="/auth/facebook" class="connect facebook">
+                            <div class="connect__icon">
+                                <i class="fa fa-facebook"></i>
+                            </div>
+                            <div class="connect__context">
+                                <span>Log in with <strong>Facebook</strong></span>
+                            </div>
+                        </a>
+                        <a href="/auth/google" class="connect googleplus">
+                            <div class="connect__icon">
+                                <i class="fa fa-google-plus"></i>
+                            </div>
+                            <div class="connect__context">
+                                <span>Log in with <strong>Google+</strong></span>
+                            </div>
+                        </a>
+                        {#<a href="/auth/instagram" class="connect instagram">#}
+                            {#<div class="connect__icon">#}
+                                {#<i class="fa fa-instagram"></i>#}
+                            {#</div>#}
+                            {#<div class="connect__context">#}
+                                {#<span>Log in with <strong>Instagram</strong></span>#}
+                            {#</div>#}
+                        {#</a>#}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+</header>
+
+<script type="text/javascript" src="/static/js/jquery-3.1.1.min.js"></script>
+<script src="/static/js/toastr.min.js"></script>
+<script type="text/javascript">
+    $('.message a').click(function () {
+        $('form').animate({ height: "toggle", opacity: "toggle" }, "medium");
+    });
+
+
+    $('#loginform').on('submit',function(evt){
+        evt.preventDefault();
+        $('#loginBtn').prop('disabled', true);
+
+        $.post('/login',$( this ).serialize(), function(data){
+
+            location.href = '/'; //TODO: Go to dashboard
+
+        }).fail(function(err){
+
+            if(err.responseJSON){
+                toastr.warning(err.responseJSON.message);
+            }
+            else{
+                toastr.warning('Unable to Login. Please try again later');
+            }
+        }).always(function(){
+            $('#loginBtn').prop('disabled', false);
+        })
+    });
+
+
+</script>
+
+</body>
+</html>

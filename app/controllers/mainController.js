@@ -13,3 +13,13 @@ exports.termsOfUse = async (ctx) => {
 
     await ctx.render('termsOfUse');
 };
+
+exports.howItWorks = async (ctx) => {
+
+    await ctx.render('howItWorks');
+};
+
+exports.pricing = async (ctx) => {
+
+    await ctx.render('pricing');
+};

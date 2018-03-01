@@ -19,6 +19,10 @@ const resourceRoutes = {};
  */
 const appRoutes = {
     '/': { flow: main.index },
+    'get /how-it-works': { flow: main.howItWorks },
+    'get /pricing': { flow: main.pricing },
+
+    //auth
     'post /login': { flow: auth.doLogin },
     '/login': { flow: auth.login },
     '/signup': { flow: auth.signup },

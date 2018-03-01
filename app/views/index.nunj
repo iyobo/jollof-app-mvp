@@ -21,14 +21,28 @@
         <a class="active item">Home</a>
         <a class="item">How it Works</a>
         <a class="item">Pricing</a>
+
         <div class="right menu">
+            {% if not user %}
             <div class="item">
                 <a href="/login" class="ui button">Log in</a>
             </div>
             <div class="item">
                 <a href="/signup" class="ui primary button">Sign Up</a>
             </div>
+            {% else %}
+            <div class="item">
+                <a href="/dashboard" class="ui button">Dashboard</a>
+            </div>
+            {% if user.isAdmin %}
+            <div class="item">
+                <a href="/admin" class="ui button">Admin</a>
+            </div>
+            {% endif %}
+            {% endif %}
+
         </div>
+
     </div>
 </div>
 
@@ -37,10 +51,16 @@
     <a class="active item">Home</a>
     <a class="item">How it Works</a>
     <a class="item">Pricing</a>
+    {% if not user %}
     <a href="/login" class="item">Login</a>
     <a href="/signup" class="item">Signup</a>
+    {% else %}
+    <a href="/dashboard" class="item">Dashboard</a>
+    {% if user.isAdmin %}
+    <a href="/admin" class="item">Admin</a>
+    {% endif %}
+    {% endif %}
 </div>
-
 
 <!-- Page Contents -->
 <div class="pusher">
@@ -54,9 +74,17 @@
                 <a class="active item">Home</a>
                 <a class="item">How it Works</a>
                 <a class="item">Pricing</a>
+
                 <div class="right item">
-                    <a href="/login" class="ui inverted button">Log in</a>
-                    <a href="/signup" class="ui inverted button">Sign Up</a>
+                    {% if not user %}
+                    <a href="/login" class="ui inverted button">Login</a>
+                    <a href="/signup" class="ui inverted button">Signup</a>
+                    {% else %}
+                    <a href="/dashboard" class="ui inverted button">Dashboard</a>
+                    {% if user.isAdmin %}
+                    <a href="/admin" class="ui inverted button">Admin</a>
+                    {% endif %}
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -127,35 +155,7 @@
         </div>
     </div>
 
-
-    <div class="ui inverted vertical footer segment">
-        <div class="ui container">
-            <div class="ui stackable inverted divided equal height stackable grid">
-                <div class="three wide column">
-                    <h4 class="ui inverted header">About</h4>
-                    <div class="ui inverted link list">
-                        <a href="#" class="item">Sitemap</a>
-                        <a href="#" class="item">Contact Us</a>
-                        <a href="#" class="item">Religious Ceremonies</a>
-                        <a href="#" class="item">Gazebo Plans</a>
-                    </div>
-                </div>
-                <div class="three wide column">
-                    <h4 class="ui inverted header">Services</h4>
-                    <div class="ui inverted link list">
-                        <a href="#" class="item">Banana Pre-Order</a>
-                        <a href="#" class="item">DNA FAQ</a>
-                        <a href="#" class="item">How To Access</a>
-                        <a href="#" class="item">Favorite X-Men</a>
-                    </div>
-                </div>
-                <div class="seven wide column">
-                    <h4 class="ui inverted header">Footer Header</h4>
-                    <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
-                </div>
-            </div>
-        </div>
-    </div>
+    {% include "snippets/footer.nunj" %}
 </div>
 
 </body>

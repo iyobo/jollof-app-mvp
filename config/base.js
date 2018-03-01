@@ -12,7 +12,8 @@ module.exports = {
         host: 'localhost',
         port: 3001,
         httpsPort: 3002,
-        address: 'http://localhost:3001',
+        useSSL: false,
+        domains: ['localhost'] //list of SSL domains for SSL certificate generation. This will fail as localhost is invalid for such. Overwrite in production config
     },
 
     /**

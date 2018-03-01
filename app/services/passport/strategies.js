@@ -9,7 +9,8 @@ const FacebookStrategy = require('passport-facebook').Strategy;
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const InstagramStrategy = require('passport-instagram').Strategy;
 
-const hostAddress = jollof.config.server.address;
+const serverConfig = jollof.config.server;
+const hostAddress = `${serverConfig.useSSL ? 'https' : 'http'}://${serverConfig.host}:${serverConfig.useSSL ? serverConfig.httpsPort : serverConfig.port}`;
 
 
 /**
@@ -49,8 +50,8 @@ exports.setupStrategies = (app, passport) => {
 
         // This user object uses Email as username.
         try {
-            const user = await User.findOneBy({email: username});
-            const identity = await UserIdentity.findOneBy({identityKey: username, source: 'local'});
+            const user = await User.findOneBy({ email: username });
+            const identity = await UserIdentity.findOneBy({ identityKey: username, source: 'local' });
 
             if (user && await crypto.compare(password, identity.accessToken)) {
                 done(null, user)
@@ -126,7 +127,7 @@ async function authenticate(provider, accessToken, profile, done) {
     });
 
     if (userIdentity) {
-        await jollof.models.UserIdentity.updateBy({id: `${userIdentity.id}`}, { accessToken });
+        await jollof.models.UserIdentity.updateBy({ id: `${userIdentity.id}` }, { accessToken });
 
         const user = await jollof.models.User.findById(userIdentity.user);
 
@@ -166,7 +167,7 @@ async function authenticate(provider, accessToken, profile, done) {
             const newUserIdentity = await userIdentityEntry.save();
 
             //notify
-            await sendWelcomeUserEmail({to: newUser.email, newUser})
+            await sendWelcomeUserEmail({ to: newUser.email, newUser })
 
             done(null, newUser);
         }

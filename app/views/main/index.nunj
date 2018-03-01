@@ -18,9 +18,7 @@
 <!-- Following Menu -->
 <div class="ui large top fixed hidden menu">
     <div class="ui container">
-        <a class="active item">Home</a>
-        <a class="item">How it Works</a>
-        <a class="item">Pricing</a>
+        {% include "snippets/nav.nunj" %}
 
         <div class="right menu">
             {% if not user %}
@@ -48,9 +46,7 @@
 
 <!-- Sidebar Menu -->
 <div class="ui vertical inverted sidebar menu">
-    <a class="active item">Home</a>
-    <a class="item">How it Works</a>
-    <a class="item">Pricing</a>
+    {% include "snippets/nav.nunj" %}
     {% if not user %}
     <a href="/login" class="item">Login</a>
     <a href="/signup" class="item">Signup</a>
@@ -71,9 +67,7 @@
                 <a class="toc item">
                     <i class="sidebar icon"></i>
                 </a>
-                <a class="active item">Home</a>
-                <a class="item">How it Works</a>
-                <a class="item">Pricing</a>
+                {% include "snippets/nav.nunj" %}
 
                 <div class="right item">
                     {% if not user %}

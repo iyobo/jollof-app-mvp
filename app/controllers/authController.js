@@ -61,7 +61,7 @@ exports.login = async (ctx) => {
     if (ctx.session.user) {
         await ctx.redirect('/');
     } else {
-        await ctx.render('login');
+        await ctx.render('auth/login');
     }
 
 }
@@ -69,7 +69,7 @@ exports.signup = async (ctx) => {
     if (ctx.session.user) {
         await ctx.redirect('/');
     } else {
-        await ctx.render('signup');
+        await ctx.render('auth/signup');
     }
 }
 

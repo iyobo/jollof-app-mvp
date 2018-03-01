@@ -1,4 +1,4 @@
 <!--<a class="active item">Home</a>-->
-<a class="item">Home</a>
-<a class="item">How it Works</a>
-<a class="item">Pricing</a>
+<a href="/" class="item">Home</a>
+<a href="/how-it-works" class="item">How it Works</a>
+<a href="/pricing" class="item">Pricing</a>

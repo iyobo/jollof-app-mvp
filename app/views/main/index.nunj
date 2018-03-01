@@ -44,7 +44,7 @@
                         Make something awesome with it!</p>
                 </div>
                 <div class="six wide right floated column">
-                    <img src="/static/images/white-image.png" class="ui large bordered rounded image">
+                    <img src="/static/images/null.png" class="ui large bordered rounded image">
                 </div>
             </div>
             <div class="row">

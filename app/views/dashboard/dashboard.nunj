@@ -5,7 +5,20 @@
 {% endblock %}
 
 {% block content %}
-<div id="root"></div>
+<div id="root">
+    <div class="ui vertical stripe segment">
+        <div class="ui middle aligned stackable grid container">
+            <div class="ui segment">
+                <div class="ui active inverted dimmer">
+                    <div class="ui text loader">Loading</div>
+                </div>
+                <p></p>
+            </div>
+
+        </div>
+    </div>
+
+</div>
 {% endblock %}
 
 {% block bottom %}

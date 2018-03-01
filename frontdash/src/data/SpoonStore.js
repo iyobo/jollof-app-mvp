@@ -5,17 +5,17 @@ const axios = require('axios');
 class SpoonStore {
 
     app = null;
-    @observable loadedSpoon = null;
+    @observable loadedSpoons = [];
 
     constructor(app) {
         this.app = app;
     }
 
-    loadSpoon(id) {
+    loadSpoons() {
         this.app.loadCount++;
-        return axios.get(`/api/v1/spoon/${id}`).then(({ data }) => {
+        return axios.get(`/api/v1/Spoon`).then(({ data }) => {
 
-            this.loadedSpoon = data;
+            this.loadedSpoons = data;
             this.app.loadCount--;
             return data; //Be nice and return something for whatever would like to chain this promise.
         }).catch(this.app.handleLoadError);

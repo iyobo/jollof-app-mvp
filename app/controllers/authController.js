@@ -2,6 +2,13 @@ const boom = require('boom');
 const jollof = require('jollof');
 const sendWelcomeUserEmail = require('../services/mailService').sendWelcomeUserEmail;
 
+exports.getCurrentUser = async (ctx) => {
+
+    const user = ctx.state.user;
+
+    ctx.body = user;
+}
+
 exports.doLogin = async (ctx) => {
 
     //Authenticate using the local strategy defined in app/service/passport/strategy

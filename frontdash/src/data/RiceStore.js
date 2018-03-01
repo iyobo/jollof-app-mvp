@@ -1,19 +1,20 @@
-import {observable} from 'mobx';
+import {observable, action} from 'mobx';
 
 const axios = require('axios');
 
 class RiceStore {
 
     app = null;
-    @observable loadedRice = null;
+    @observable loadedRice = [];
 
     constructor(app) {
         this.app = app;
-    }
 
-    loadRice(id) {
+    }
+    
+    loadRice() {
         this.app.loadCount++;
-        return axios.get(`/api/v1/rice/${id}`).then(({ data }) => {
+        return axios.get(`/api/v1/Rice`).then(({ data }) => {
 
             this.loadedRice = data;
             this.app.loadCount--;

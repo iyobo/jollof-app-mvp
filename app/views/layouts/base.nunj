@@ -10,6 +10,7 @@
     <link rel="icon" type="image/png" href="/static/images/logo.png">
     <title>JollofJS: Get it done</title>
     <link href="/static/semantic/semantic.min.css" rel="stylesheet">
+    <link href="/static/css/animate.css" rel="stylesheet">
     <link href="/static/css/style.css" rel="stylesheet">
     <style>
         .masthead.segment {

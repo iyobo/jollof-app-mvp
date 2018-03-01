@@ -1,30 +1,48 @@
 import React, {Component} from 'react';
 import {Redirect, Route, Switch} from 'react-router-dom';
-import {Container, Header} from 'semantic-ui-react'
+import {Container, Header, Menu} from 'semantic-ui-react'
 import SpoonListPage from '../pages/Spoon/SpoonListPage';
-import SpoonItemPage from '../pages/Spoon/SpoonItemPage';
 import RiceListPage from '../pages/Rice/RiceListPage';
-import RiceItemPage from '../pages/Rice/RiceItemPage';
 
 class FrontDashLayout extends Component {
     render() {
         return (
-            <div className="frontdash">
-                <Header as='h1'>Dashboard Header</Header>
+            <Container className="frontdash">
 
-                <Container fluid>
-                    <Switch>
-                        <Route path="/spoon" name="Spoon" component={SpoonListPage}/>
-                        <Route path="/spoon/:id" name="Spoon" component={SpoonItemPage}/>
+                <Menu secondary>
+                    <Menu.Item
+                        name='spoon'
+                        active={this.props.location.pathname.startsWith('/spoon')}
+                        href='#/spoon'
+                    >
+                        Spoon
+                    </Menu.Item>
 
-                        <Route path="/rice" name="Rice" component={RiceListPage}/>
-                        <Route path="/rice/:id" name="Rice" component={RiceItemPage}/>
+                    <Menu.Item
+                        name='rice'
+                        active={this.props.location.pathname.startsWith('/rice')}
+                        href='#/rice'
+                    >
+                        Rice
+                    </Menu.Item>
 
-                        <Redirect from="/" to="/spoon"/>
-                    </Switch>
+                </Menu>
+                <Container >
+                    <div class="ui vertical pad20 ">
+                        {/*<div class="ui middle aligned stackable grid container">*/}
+                            {/*<div class="row">*/}
+                                <Switch>
+                                    <Route path="/spoon" name="Spoon" component={SpoonListPage}/>
+                                    <Route path="/rice" name="Rice" component={RiceListPage}/>
+
+                                    <Redirect from="/" to="/spoon"/>
+                                </Switch>
+                            {/*</div>*/}
+                        {/*</div>*/}
+                    </div>
                 </Container>
 
-            </div>
+            </Container>
         );
     }
 }

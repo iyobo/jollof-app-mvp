@@ -9,14 +9,11 @@ const sendWelcomeUserEmail = require('../services/mailService').sendWelcomeUserE
 
 exports.getItems = async (modelName, ctx) => {
 
-    const user = ctx.state.user;
-
-    ctx.body = await jollof.models[modelName].findBy({ organizer: user.id })
+    ctx.body = await jollof.models[modelName].find([])
 };
 
 exports.getItem = async (modelName, ctx) => {
 
-    const user = ctx.state.user;
     const id = ctx.params.id;
 
     ctx.body = await jollof.models[modelName].findById(id)
@@ -24,7 +21,6 @@ exports.getItem = async (modelName, ctx) => {
 
 exports.createItem = async (modelName, ctx) => {
 
-    const user = ctx.state.user;
     const payload = ctx.request.fields;
 
     console.log({payload})
@@ -38,7 +34,6 @@ exports.createItem = async (modelName, ctx) => {
 
 exports.updateItem = async (modelName, ctx) => {
 
-    const user = ctx.state.user;
     const id = ctx.params.id;
     const payload = ctx.request.fields;
 
@@ -50,7 +45,6 @@ exports.updateItem = async (modelName, ctx) => {
 
 exports.deleteItem = async (modelName, ctx) => {
 
-    const user = ctx.state.user;
     const id = ctx.params.id;
 
     ctx.body = await jollof.models[modelName].removeBy({ id });

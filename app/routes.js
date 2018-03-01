@@ -1,18 +1,24 @@
 const _ = require('lodash');
-const main = require('../app/controllers/mainController');
-const auth = require('../app/controllers/authController');
+const main = require('./controllers/mainController');
+const dashboard = require('./controllers/dashboardController');
+const auth = require('./controllers/authController');
 const loggedIn = require('./constraints/auth').loggedIn;
 const buildGenericResourceAPI = require('./util/routeUtil').buildGenericResourceAPI;
 
 /**
- * Use this to build routes for any model you intend to make a resource
+ * Use this map to configure a REST API for each model you intend to make a resource
  */
 const resourceRoutes = {};
-//buildGenericResourceAPI(resourceRoutes, {
-//    prePath: 'v1',
-//    modelName: 'SomeModel',
-//    restConstraints: { all: [loggedIn] }
-//});
+buildGenericResourceAPI(resourceRoutes, {
+    prePath: 'v1',
+    modelName: 'Spoon',
+    restConstraints: { all: [loggedIn] }
+});
+buildGenericResourceAPI(resourceRoutes, {
+    prePath: 'v1',
+    modelName: 'Rice',
+    restConstraints: { all: [loggedIn] }
+});
 
 /**
  * Put your app-specific routes here
@@ -21,6 +27,8 @@ const appRoutes = {
     '/': { flow: main.index },
     'get /how-it-works': { flow: main.howItWorks },
     'get /pricing': { flow: main.pricing },
+    'get /privacy-policy': { flow: main.privacyPolicy },
+    'get /terms-of-use': { flow: main.termsOfUse },
 
     //auth
     'post /login': { flow: auth.doLogin },
@@ -28,10 +36,10 @@ const appRoutes = {
     '/signup': { flow: auth.signup },
     'post /signup': { flow: auth.doSignup },
     'get /logout': { flow: auth.logout },
+    'get /dashboard': { flow: auth.logout },
 
-    //Support
-    'get /privacy-policy': { flow: main.privacyPolicy },
-    'get /terms-of-use': { flow: main.termsOfUse },
+    //dashboard. Can only access it when logged in
+    '/dashboard': { flow: [loggedIn, dashboard.index] },
 
     //Social media - facebook
     'get /auth/facebook': { flow: auth.authFacebook },

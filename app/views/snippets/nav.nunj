@@ -1,3 +1,4 @@
-<a class="active">Home</a>
+<!--<a class="active item">Home</a>-->
+<a class="item">Home</a>
 <a class="item">How it Works</a>
 <a class="item">Pricing</a>

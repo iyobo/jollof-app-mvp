@@ -36,7 +36,6 @@ const appRoutes = {
     '/signup': { flow: auth.signup },
     'post /signup': { flow: auth.doSignup },
     'get /logout': { flow: auth.logout },
-    'get /dashboard': { flow: auth.logout },
 
     //dashboard. Can only access it when logged in
     '/dashboard': { flow: [loggedIn, dashboard.index] },

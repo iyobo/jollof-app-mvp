@@ -7,13 +7,13 @@
 
         <div class="right item">
             {% if not user %}
-            <a href="/login" class="ui inverted button">Login</a>
-            <a href="/signup" class="ui inverted button">Signup</a>
+                <a href="/login" class="ui inverted button">Login</a>
+                <a href="/signup" class="ui inverted button">Signup</a>
             {% else %}
-            <a href="/dashboard" class="ui inverted button">Dashboard</a>
-            {% if user.isAdmin %}
-            <a href="/admin" class="ui inverted button">Admin</a>
-            {% endif %}
+                <a href="/dashboard" class="ui inverted button">Dashboard</a>
+                {% if user.isAdmin %}
+                    <a href="/admin" class="ui inverted button">Admin</a>
+                {% endif %}
             {% endif %}
         </div>
     </div>

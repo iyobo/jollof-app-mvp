@@ -9,9 +9,5 @@
 {% endblock %}
 
 {% block bottom %}
-    {% if config.env === 'development' %}
-        <script type="application/javascript" src="/static/frontdash/index.bundle.dev.js" ></script>
-    (% else %}
-        <script type="application/javascript" src="/static/frontdash/index.bundle.prod.js" ></script>
-    (% endif %}
+    <script type="application/javascript" src="/static/frontdash/index.bundle.{{ bundleType }}.js" ></script>
 {% endblock %}

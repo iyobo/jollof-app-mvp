@@ -63,7 +63,7 @@
 
         <div class="ui text container">
             <h1 class="ui inverted header">
-                JollofJS: Get to it
+               JollofJS: Get to it
             </h1>
             <h2>Your MVP isn't going to build itself</h2>
             <a href="http://jollofjs.com" target="_blank" class="ui huge primary button">Oh and You'll need Docs <i class="right arrow icon"></i></a>

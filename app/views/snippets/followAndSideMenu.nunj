@@ -1,0 +1,42 @@
+<!-- Following Menu -->
+<div class="ui large top fixed hidden menu">
+    <div class="ui container">
+        {% include "snippets/nav.nunj" %}
+
+        <div class="right menu">
+            {% if not user %}
+            <div class="item">
+                <a href="/login" class="ui button">Log in</a>
+            </div>
+            <div class="item">
+                <a href="/signup" class="ui primary button">Sign Up</a>
+            </div>
+            {% else %}
+            <div class="item">
+                <a href="/dashboard" class="ui button">Dashboard</a>
+            </div>
+            {% if user.isAdmin %}
+            <div class="item">
+                <a href="/admin" class="ui button">Admin</a>
+            </div>
+            {% endif %}
+            {% endif %}
+
+        </div>
+
+    </div>
+</div>
+
+<!-- Sidebar Menu -->
+<div class="ui vertical inverted sidebar menu">
+    {% include "snippets/nav.nunj" %}
+    {% if not user %}
+    <a href="/login" class="item">Login</a>
+    <a href="/signup" class="item">Signup</a>
+    {% else %}
+    <a href="/dashboard" class="item">Dashboard</a>
+    {% if user.isAdmin %}
+    <a href="/admin" class="item">Admin</a>
+    {% endif %}
+    {% endif %}
+</div>

@@ -20,7 +20,7 @@ function loadArray(inputMap, key) {
  * @param prePath
  * @param version
  * @param modelName
- * @param restConstraints - {all, getOne, get, create, update, delete}
+ * @param restConstraints - {all, getOne, get, create, update, delete} - an keyed map of constraint arrays
  */
 exports.buildGenericResourceAPI = function (routeMap, { prePath, version = 1, modelName, restConstraints = {} }) {
 

@@ -40,7 +40,9 @@ console.log('useSSL: ',useSSL);
         app.use(passport.initialize());
         app.use(passport.session());
         app.use(convert(function* (next) {
+            var tt = this;
             this.passport = passport;
+            this.state.url = this.originalUrl;
             return yield next;
         }));
         app.use(gzip());

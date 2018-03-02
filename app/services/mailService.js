@@ -108,7 +108,6 @@ const addContact = exports.addContact = async ({ user, sendWelcome }) => {
 
 /**
  * Yay! We got a new user.
- * Let's also add them to the FaaJii newsletter with their consent!
  *
  * @param to
  * @param user

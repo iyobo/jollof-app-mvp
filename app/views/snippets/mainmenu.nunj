@@ -14,6 +14,7 @@
                 {% if user.isAdmin %}
                     <a href="/admin" class="ui inverted button">Admin</a>
                 {% endif %}
+                <a href="/logout" class="navlink">Logout</a>
             {% endif %}
         </div>
     </div>

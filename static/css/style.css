@@ -83,6 +83,12 @@
     }
 }
 
+.navlink{
+    margin: 20px;
+    font-weight: bold;
+    color: white;
+}
+
 .pad20{
     padding: 20px;
 }

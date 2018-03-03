@@ -14,6 +14,7 @@ const schema = {
     structure: {
         name: String,
         notes: { type: String, meta: { widget: 'textarea' } },
+        essayAboutRice: { type: String, meta: { widget: 'richtext' } },
         category: {
             type: String, meta: {
                 choices: ['Healthy', 'Not Healthy'],

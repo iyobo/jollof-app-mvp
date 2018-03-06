@@ -17,7 +17,8 @@ exports.canViewAdmin = async (ctx, next) => {
     }
     else {
         //If user is not authorized to use admin, throw a misleading redirect to avoid hinting.
-        ctx.redirect('/login');
+        ctx.response.status = 401;
+        //ctx.redirect('/login');
     }
 
 };

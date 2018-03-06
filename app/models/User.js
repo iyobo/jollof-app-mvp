@@ -76,6 +76,11 @@ const schema = {
             async init() {
                 await this.db.collection('User').createIndex({ email: 1 }, { unique: true });
             },
+        },
+        arangodb: {
+            async init() {
+
+            },
         }
 
     }

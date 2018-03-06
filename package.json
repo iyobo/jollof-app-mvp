@@ -16,6 +16,7 @@
         "figlet": "^1.2.0",
         "got": "^7.1.0",
         "jollof": "^1.6.13",
+        "jollof-data-arangodb": "0.0.2",
         "jollof-data-mongodb": "^1.4.2",
         "jollof-spice-blog": "^0.6.13",
         "koa-convert": "^1.2.0",

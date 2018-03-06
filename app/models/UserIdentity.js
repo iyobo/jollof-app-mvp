@@ -29,7 +29,7 @@ const schema = {
         preSave: async function () {
 
             // handle password re-hashing if the password field changes for local sourced identities
-            if(this.source==='local') {
+            if (this.source === 'local') {
                 let originalIdentity;
                 if (this.isPersisted()) {
                     originalIdentity = await jollof.models.UserIdentity.findBy({ user: this.id });
@@ -47,6 +47,11 @@ const schema = {
         mongodb: {
             async init() {
             }
+        },
+        arangodb: {
+            async init() {
+
+            },
         }
     }
 };

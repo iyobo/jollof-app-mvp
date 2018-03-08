@@ -35,8 +35,11 @@
         <div class="ui middle aligned stackable grid container">
             <div class="row">
                 <div class="eight wide column">
-                    <h3 class="ui header">JollofJS likes Semantic UI</h3>
-                    <p>This template is powered by Semantic UI. It's awesome. <a target="_blank" href="https://semantic-ui.com/">See Docs</a></p>
+                    <h3 class="ui header">Your views were created with Semantic UI</h3>
+                    <p>This template is powered by Semantic UI (<a target="_blank" href="https://semantic-ui.com/">See Docs</a>), but you don't have to use it.
+                        Rip it out and make it into whatever you want.
+                    </p>
+
 
                     <h3 class="ui header">Don't let it go to waste!</h3>
                     <p>You created this project with <b><i>jollof new</i></b>.<br/>

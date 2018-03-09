@@ -18,7 +18,6 @@ exports.canViewAdmin = async (ctx, next) => {
     else {
         //If user is not authorized to use admin, throw a misleading redirect to avoid hinting.
         ctx.response.status = 401;
-        //ctx.redirect('/login');
     }
 
 };
@@ -32,12 +31,11 @@ exports.canViewAdmin = async (ctx, next) => {
 exports.loggedIn = async (ctx, next) =>{
 
     if (ctx.isAuthenticated()) {
-        //if (true) {
         await next();
     }
     else {
-        //If user is not authorized to use admin, throw a misleading 404 to avoid hinting.
-        ctx.redirect('/login');
+        //If user is not authorized, redirect to login
+        ctx.redirect(`/login?destination=${ctx.originalUrl}`);
     }
 
 };

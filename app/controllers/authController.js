@@ -25,7 +25,7 @@ exports.doLogin = async (ctx) => {
     });
 
     if (authenticatedUser) {
-        ctx.body = {success: true};
+        ctx.body = { success: true, destination: ctx.session.destination };
         ctx.login(authenticatedUser);
 
     } else {
@@ -46,10 +46,10 @@ exports.doSignup = async (ctx) => {
     }
 
 
-    const user= await User.persist(ctx.request.fields);
+    const user = await User.persist(ctx.request.fields);
 
     //notify
-    await sendWelcomeUserEmail({to: user.email, user})
+    await sendWelcomeUserEmail({ to: user.email, user })
 
     //Use email of new user as username
     ctx.request.fields.username = ctx.request.fields.email;
@@ -65,13 +65,17 @@ exports.logout = async (ctx) => {
 }
 
 exports.login = async (ctx) => {
+
     if (ctx.session.user) {
         await ctx.redirect('/');
     } else {
+        if (ctx.query.destination)
+            ctx.session.destination = ctx.query.destination;
         await ctx.render('auth/login');
     }
 
 }
+
 exports.signup = async (ctx) => {
     if (ctx.session.user) {
         await ctx.redirect('/');
@@ -85,7 +89,7 @@ exports.signup = async (ctx) => {
  * Other potential auth endpoints
  */
 exports.authFacebook = async (ctx) => {
-    ctx.passport.authenticate('facebook', {scope: ['email']})(ctx);
+    ctx.passport.authenticate('facebook', { scope: ['email'] })(ctx);
 };
 
 exports.authFacebookCallback = async (ctx) => {
@@ -96,7 +100,7 @@ exports.authFacebookCallback = async (ctx) => {
 };
 
 exports.authGoogle = async (ctx) => {
-    ctx.passport.authenticate('google', { scope: [ 'profile', 'email' ] })(ctx);
+    ctx.passport.authenticate('google', { scope: ['profile', 'email'] })(ctx);
 };
 
 exports.authGoogleCallback = async (ctx) => {

@@ -95,7 +95,7 @@
 
         $.post('/signup', $(this).serialize(), function (data) {
 
-            location.href = '/'; //TODO: Go to dashboard
+            location.href = data.destination || '/';
         }).fail(function (err) {
             if (err.responseJSON) {
                 toastr.warning(err.responseJSON.message);

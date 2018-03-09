@@ -85,7 +85,7 @@
 
         $.post('/login',$( this ).serialize(), function(data){
 
-            location.href = '/'; //TODO: Go to dashboard
+            location.href = data.destination || '/';
 
         }).fail(function(err){
 

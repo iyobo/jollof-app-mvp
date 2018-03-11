@@ -6,10 +6,10 @@
         <div class="right menu">
             {% if not user %}
                 <div class="item">
-                    <a href="/login" class="ui button">Log in</a>
+                    <a href="/login?destination={{ originalUrl }}" class="ui button">Log in</a>
                 </div>
                 <div class="item">
-                    <a href="/signup" class="ui primary button">Sign Up</a>
+                    <a href="/signup?destination={{ originalUrl }}" class="ui primary button">Sign Up</a>
                 </div>
             {% else %}
                 <div class="item">
@@ -31,8 +31,8 @@
 <div class="ui vertical inverted sidebar menu">
     {% include "snippets/nav.nunj" %}
     {% if not user %}
-        <a href="/login" class="item">Login</a>
-        <a href="/signup" class="item">Signup</a>
+        <a href="/login?destination={{ originalUrl }}" class="item">Login</a>
+        <a href="/signup?destination={{ originalUrl }}" class="item">Signup</a>
     {% else %}
         <a href="/dashboard" class="item">Dashboard</a>
         {% if user.isAdmin %}

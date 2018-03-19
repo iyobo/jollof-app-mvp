@@ -22,21 +22,18 @@ const schema = {
             }
         },
         identityEmail: String,
+        password: { type: String, meta: { widget: 'password' } },
         identityKey: String,
-        accessToken: { type: String, meta: { widget: 'password' } },
+        accessToken: String,
     },
     hooks: {
         preSave: async function () {
 
             // handle password re-hashing if the password field changes for local sourced identities
             if(this.source==='local') {
-                let originalIdentity;
-                if (this.isPersisted()) {
-                    originalIdentity = await jollof.models.UserIdentity.findBy({ user: this.id });
-                }
 
-                if (!originalIdentity || originalIdentity.accessToken != this.accessToken) {
-                    this.accessToken = await jollof.crypto.hash(this.accessToken);
+                if (!this.isPersisted() || this._originalData.password != this.password) {
+                    this.password = await jollof.crypto.hash(this.password);
                 }
             }
             return true;
@@ -46,6 +43,7 @@ const schema = {
     native: {
         mongodb: {
             async init() {
+                await this.db.collection('UserIdentity').createIndex({ source: 1, identityEmail: 1 }, { unique: true });
             }
         }
     }

@@ -38,18 +38,32 @@ exports.doLogin = async (ctx) => {
 exports.doSignup = async (ctx) => {
 
     const User = jollof.models.User;
+    const UserIdentity = jollof.models.UserIdentity;
     const email = ctx.request.fields.email;
+    const password = ctx.request.fields.password;
 
+    let user = await User.findOneBy({ email });
+    let localIdentity = await UserIdentity.findOneBy({ identityEmail: email, source: 'local' });
     //first check if user exists
-    if ((await User.exists(email)) === true) {
+    if (user || localIdentity) {
         return ctx.throw(new boom.conflict(`User with email ${email} already exists`));
     }
 
+    user = await User.persist(ctx.request.fields);
 
-    const user = await User.persist(ctx.request.fields);
+    await UserIdentity.persist({
+        user: user.id,
+        source: 'local',
+        identityEmail: user.email,
+        password
+    });
 
-    //notify
-    await sendWelcomeUserEmail({ to: user.email, user })
+    try {
+        //notify
+        await sendWelcomeUserEmail({ to: user.email, user })
+    }catch(err){
+        console.error('issue with sending welcome email')
+    }
 
     //Use email of new user as username
     ctx.request.fields.username = ctx.request.fields.email;

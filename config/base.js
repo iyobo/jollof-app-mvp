@@ -6,6 +6,8 @@ var auth = require('../app/constraints/auth.js');
 
 module.exports = {
 
+    name: 'My Jollof App',
+
     env: 'development',
 
     server: {

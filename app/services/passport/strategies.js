@@ -51,9 +51,9 @@ exports.setupStrategies = (app, passport) => {
         // This user object uses Email as username.
         try {
             const user = await User.findOneBy({ email: username });
-            const identity = await UserIdentity.findOneBy({ identityKey: username, source: 'local' });
+            const identity = await UserIdentity.findOneBy({ identityEmail: username, source: 'local' });
 
-            if (user && await crypto.compare(password, identity.accessToken)) {
+            if (user && await crypto.compare(password, identity.password)) {
                 done(null, user)
 
             } else {

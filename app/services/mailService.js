@@ -118,7 +118,14 @@ exports.sendWelcomeUserEmail = async ({ to, user, avoidNewsletter }) => {
 
     if (!avoidNewsletter)
         await addContact({ user });
-    return await sendTemplateEmail({ to, templateId: 999, variables: user }); //replace templateId with welcome user template created on mailjet
+
+    return await sendEmail({ to, subject: 'Welcome to iyobo.co',
+        content: `<h1>Welcome to ${serverConfig.name}</h1>
+        <p>Your email: ${user.email}</p>
+        <p>Your dashboard: <a href="${baseUrl}/dashboard">${baseUrl}/dashboard</a> </p>
+        <i>Don't be a stranger!</i>
+`
+    });
 }
 
 /**

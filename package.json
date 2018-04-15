@@ -6,6 +6,8 @@
     "scripts": {
         "start": "node index.js",
         "dev": "cd frontdash && npm run dev",
+        "bulmadev": "cd static/bulma && npm run start",
+        "bulma": "cd static/bulma && npm run deploy",
         "build": "cd frontdash && npm i && npm run build",
         "install-dashboard-deps": "cd frontdash && npm i "
     },

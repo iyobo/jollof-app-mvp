@@ -29,7 +29,17 @@ module.exports = {
                 options: {
                     mongoUrl: 'mongodb://localhost/jollofmvp'
                 }
-            }
+            },
+            //arangodb: { //in case you hate mongoDB!
+            //    adapter: require('jollof-data-arangodb'),
+            //    nativeType: 'arangodb',
+            //    options: {
+            //        url: null, //uses localhost:8529 by default if this value is falsy
+            //        databaseName: 'jollofmvp',
+            //        username: 'root',
+            //        password: ''
+            //    }
+            //},
         }
     },
 

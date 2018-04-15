@@ -10,7 +10,7 @@ const types = data.types;
 
 const schema = {
     name: 'Spoon',
-    dataSource: 'temporal',
+    dataSource: 'default',
     structure: {
         name: String,
         pic: types.File(),

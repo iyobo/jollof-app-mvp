@@ -36,7 +36,6 @@ console.log('useSSL: ',useSSL);
          * However, JollofJS is not dependent on any of these and you can rip it out and use whatever
          * authentication/authorization wiring you need for your app.
          */
-
         app.use(passport.initialize());
         app.use(passport.session());
         app.use(convert(function* (next) {

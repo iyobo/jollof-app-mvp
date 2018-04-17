@@ -1,17 +1,16 @@
 {% extends "layouts/base.nunj" %}
 
 {% block head %}
-    <title>FrontDash</title>
+    <title>Site Dashboard</title>
+    <script>
+        var dashboardBasePath = '/dashboard'
+    </script>
 {% endblock %}
 
 {% block content %}
     <section>
-        <div class="uk-section uk-section-muted">
-            <div class="uk-container uk-padding">
-                <div id="root">
-                    Loading...
-                </div>
-            </div>
+        <div id="root">
+            Loading...
         </div>
     </section>
 {% endblock %}

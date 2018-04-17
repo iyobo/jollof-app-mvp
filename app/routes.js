@@ -39,7 +39,7 @@ const appRoutes = {
     'get /api/v1/me': { flow: [loggedIn, auth.getCurrentUser] },
 
     //dashboard. Can only access it when logged in
-    '/dashboard': { flow: [loggedIn, dashboard.index] },
+    '/dashboard*': { flow: [loggedIn, dashboard.index] },
 
     //Social media - facebook
     'get /auth/facebook': { flow: auth.authFacebook },

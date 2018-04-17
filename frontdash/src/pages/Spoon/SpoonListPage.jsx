@@ -40,7 +40,7 @@ export default class SpoonListPage extends Component {
         });
 
         return (
-            <section>
+            <section className="uk-animation-slide-right-small">
                 <h2>Spoons</h2>
                 <MediaList items={items}/>
             </section>

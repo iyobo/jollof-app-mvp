@@ -1,4 +1,4 @@
-<footer class="uk-section uk-section-default uk-section-small">
+<footer class="uk-section uk-section-default uk-section-small" uk-sticky="bottom: true">
     <div class="uk-container">
         <p class="uk-text-small uk-text-center">
             Copyright Me 2017 - Powered by JollofJS.

@@ -37,7 +37,7 @@ export default class RiceListPage extends Component {
         });
 
         return (
-            <section>
+            <section className="uk-animation-slide-right-small">
                 <h2>Rice Dishes</h2>
 
                 <MediaList items={items}/>

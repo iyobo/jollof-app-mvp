@@ -1,9 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-</head>
-<body class="container">
-    Privacy policy for your app...
-</body>
-</html>
+{% extends "layouts/base.nunj" %}
+
+{% block content %}
+    <section>
+        <div class="uk-section uk-section-muted">
+            <div class="uk-container uk-padding">
+                Promise your users you won't abuse their data.
+                <p>Needed by pay processors</p>
+            </div>
+        </div>
+    </section>
+{% endblock %}

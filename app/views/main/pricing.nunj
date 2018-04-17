@@ -1,21 +1,11 @@
 {% extends "layouts/base.nunj" %}
 
 {% block content %}
-<div class="ui vertical stripe segment">
-    <div class="ui middle aligned stackable grid container">
-        <div class="row">
+<section>
+    <div class="uk-section uk-section-muted">
+        <div class="uk-container uk-padding">
             Talk about Pricing
         </div>
-
     </div>
-</div>
+</section>
 {% endblock %}
-
-<!--<div class="ui stackable container menu">-->
-    <!--<div class="item">-->
-        <!--<img src="/static/images/logo.png">-->
-    <!--</div>-->
-    <!--<a class="item">Features</a>-->
-    <!--<a class="item">Testimonials</a>-->
-    <!--<a class="item">Sign-in</a>-->
-<!--</div>-->

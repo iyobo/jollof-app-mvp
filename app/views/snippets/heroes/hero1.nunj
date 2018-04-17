@@ -1,0 +1,44 @@
+<!--HERO-->
+<section class="uk-section uk-section-large uk-section-secondary">
+    <div class="uk-container uk-container-small uk-text-center">
+        <h1>Your MVP isn't going to Build itself</h1>
+        <p class="uk-text-large">
+            Best get started. Oh and you'll need <a target="_blank" href="http://jollofjs.com">JollofJS docs</a>
+        <div data-uk-margin>
+            <div class="uk-button uk-button-primary">
+                CALL TO ACTION
+            </div>
+            <div class="uk-button uk-button-default">
+                CLICK HERE
+            </div>
+        </div>
+    </div>
+</section>
+<!--/HERO-->
+<!-- INFO -->
+{#<section class="uk-section uk-section-default uk-box-shadow-small uk-section-xsmall">#}
+        {#<div class="uk-container">#}
+            {#<div class="uk-grid uk-grid-small uk-flex uk-flex-middle" data-uk-grid>#}
+                {#<div class="uk-width-auto">#}
+                    {#<img src="https://unsplash.it/65/65/?random" alt="" class="uk-border-circle">#}
+                {#</div>#}
+                {#<div class="uk-width-expand">#}
+                    {#<h4 class="uk-margin-remove">Curabitur consequat lectus a dolor interdum semper.</h4>#}
+                    {#<i class="uk-text-muted uk-text-small">Created on 12th May 2017</i>#}
+                {#</div>#}
+                {#<div class="uk-width-1-2 uk-width-1-5@m uk-visible@m">#}
+                    {#<span class="uk-text-primary" data-uk-icon="icon:calendar; ratio: 0.8"></span><span class="uk-text-small uk-text-muted uk-text-bottom"> Member since:</span><br>#}
+                    {#<span class="uk-text-large uk-text-primary">13th May 2015</span>#}
+                {#</div>#}
+                {#<div class="uk-width-1-2 uk-width-1-5@m uk-visible@m">#}
+                    {#<span class="uk-text-success" data-uk-icon="icon:user; ratio: 0.8"></span><span class="uk-text-small uk-text-muted  uk-text-bottom"> Last Login:</span><br>#}
+                    {#<span class="uk-text-large uk-text-success">18th Feb 2017</span>#}
+                {#</div>#}
+
+                {#<div class="uk-width-auto@m uk-visible@m">#}
+                    {#<a class="uk-button uk-button-default">Back</a>#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
+    {#</section>#}
+<!-- /INFO -->

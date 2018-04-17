@@ -1,26 +1,22 @@
 {% extends "layouts/base.nunj" %}
 
 {% block head %}
-<title>FrontDash</title>
+    <title>FrontDash</title>
 {% endblock %}
 
 {% block content %}
-<div id="root">
-    <div class="ui vertical stripe segment">
-        <div class="ui middle aligned stackable grid container">
-            <div class="ui segment">
-                <div class="ui active inverted dimmer">
-                    <div class="ui text loader">Loading</div>
+    <section>
+        <div class="uk-section uk-section-muted">
+            <div class="uk-container uk-padding">
+                <div id="root">
+                    Loading...
                 </div>
-                <p></p>
             </div>
-
         </div>
-    </div>
-
-</div>
+    </section>
 {% endblock %}
 
 {% block bottom %}
-    <script type="application/javascript" src="/static/frontdash/index.bundle.{{ bundleType }}.js" ></script>
+    <script type="application/javascript" src="/static/frontdash/index.bundle.{{ bundleType }}.js"></script>
 {% endblock %}
+

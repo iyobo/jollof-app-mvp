@@ -1,0 +1,48 @@
+<header>
+    <div class="uk-container">
+        <nav class="uk-navbar-transparent" data-uk-navbar>
+
+            <div class="uk-navbar-left">
+
+                <a class="uk-navbar-item uk-logo" href="/">
+                    <img class="uk-navbar-item" src="/static/images/logo.png"/> Your App</a>
+            </div>
+
+            <div class="uk-navbar-center uk-visible@m">
+                <ul class="uk-navbar-nav">
+                    <li><a href="/how-it-works">How it Works</a></li>
+                    <li><a href="#">Press</a></li>
+                </ul>
+            </div>
+
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    {% if not user %}
+                        <li><a href="/login" class="ui inverted button">Login</a></li>
+                        <li><a href="/signup" class="ui inverted button">Signup</a></li>
+                    {% else %}
+                        <li>
+                            <a href="#" data-uk-icon="icon:user"></a>
+                            <div class="uk-navbar-dropdown uk-navbar-dropdown-bottom-left">
+                                <ul class="uk-nav uk-navbar-dropdown-nav">
+                                    <li class="uk-nav-header uk-text-small uk-text-primary">YOUR ACCOUNT</li>
+                                    <li><a href="/dashboard"><span data-uk-icon="icon: info"></span> Dashboard</a></li>
+                                    {% if user.isAdmin %}
+                                        <li><a href="/admin"><span data-uk-icon="icon: refresh"></span> ADMIN</a></li>
+                                    {% endif %}
+                                    <li class="uk-nav-divider"></li>
+                                    <li><a href="/logout"><span data-uk-icon="icon: sign-out"></span> Logout</a></li>
+
+                                </ul>
+                            </div>
+                        </li>
+                    {% endif %}
+
+
+                    {#<li><a class="uk-navbar-toggle" data-uk-toggle data-uk-navbar-toggle-icon href="#offcanvas-nav"></a></li>#}
+                </ul>
+            </div>
+
+        </nav>
+    </div>
+</header>

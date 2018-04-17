@@ -1,12 +1,12 @@
 {% extends "layouts/base.nunj" %}
 
 {% block content %}
-<div class="ui vertical stripe segment">
-    <div class="ui middle aligned stackable grid container">
-        <div class="row">
-            How your product works
+    <section>
+        <div class="uk-section uk-section-muted">
+            <div class="uk-container uk-padding">
+                Talk about how it works.
+                <p>You should probably use lots of visual diagrams</p>
+            </div>
         </div>
-
-    </div>
-</div>
+    </section>
 {% endblock %}

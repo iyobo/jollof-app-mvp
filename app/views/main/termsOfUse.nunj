@@ -1,9 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-</head>
-<body class="container">
-TOS for your app...
-</body>
-</html>
+{% extends "layouts/base.nunj" %}
+
+{% block content %}
+    <section>
+        <div class="uk-section uk-section-muted">
+            <div class="uk-container uk-padding">
+                Tell your users how to behave
+            </div>
+        </div>
+    </section>
+{% endblock %}

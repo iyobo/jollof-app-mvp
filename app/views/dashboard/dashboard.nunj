@@ -9,7 +9,7 @@
 
 {% block content %}
     <section>
-        <div id="root">
+        <div id="root" class="uk-section-muted">
             Loading...
         </div>
     </section>

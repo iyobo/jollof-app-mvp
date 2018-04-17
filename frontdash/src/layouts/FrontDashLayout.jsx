@@ -21,7 +21,7 @@ class FrontDashLayout extends Component {
                         </li>
                     </ul>
 
-                    <div class="uk-padding ">
+                    <div class="uk-padding">
                         <Switch>
                             <Route path="/spoon" name="Spoon" component={SpoonListPage}/>
                             <Route path="/rice" name="Rice" component={RiceListPage}/>

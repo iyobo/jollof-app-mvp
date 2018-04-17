@@ -7,9 +7,9 @@
     <section>
         <div class="uk-section uk-section-muted">
             <div class="uk-container uk-padding">
-                <div class="uk-grid-divider" uk-grid>
+                <div class="uk-grid-divider uk-animation-slide-right-small" uk-grid >
                     <div class="uk-width-1-3@s uk-width-1-4@m">
-                        <img class="uk-border-rounded" src="https://static.pexels.com/photos/220247/pexels-photo-220247.jpeg" alt="">
+                        <img class="uk-border-rounded" src="/static/images/wireframe/image.png" alt="">
                         <div class="uk-container">
                             <div class="uk-child-width-1-4 uk-text-center uk-padding-small" uk-grid>
                                 <div>

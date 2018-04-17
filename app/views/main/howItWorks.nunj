@@ -3,7 +3,7 @@
 {% block content %}
     <section>
         <div class="uk-section uk-section-muted">
-            <div class="uk-container uk-padding">
+            <div class="uk-container uk-padding uk-animation-slide-right-small">
                 Talk about how it works.
                 <p>You should probably use lots of visual diagrams</p>
             </div>

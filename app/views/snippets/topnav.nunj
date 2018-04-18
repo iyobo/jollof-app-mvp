@@ -28,7 +28,7 @@
                                     <li class="uk-nav-header uk-text-small uk-text-primary">YOUR ACCOUNT</li>
                                     <li><a href="/dashboard"><span data-uk-icon="icon: info"></span> Dashboard</a></li>
                                     {% if user.isAdmin %}
-                                        <li><a href="/admin"><span data-uk-icon="icon: refresh"></span> ADMIN</a></li>
+                                        <li><a href="/admin" target="_blank"><span data-uk-icon="icon: refresh"></span> ADMIN</a></li>
                                     {% endif %}
                                     <li class="uk-nav-divider"></li>
                                     <li><a href="/logout"><span data-uk-icon="icon: sign-out"></span> Logout</a></li>

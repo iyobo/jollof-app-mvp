@@ -24,6 +24,10 @@ module.exports = function (nunjucksEnv) {
         return moment(date).format('ddd MMM D, hA')
     });
 
+    nunjucksEnv.addFilter('quickDate', function (date) {
+        return moment(date).format('ddd MMM D')
+    });
+
     nunjucksEnv.addFilter('timeOnly', function (date) {
         return moment(date).format('hA')
     });

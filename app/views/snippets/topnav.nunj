@@ -9,7 +9,8 @@
             </div>
 
             <div class="uk-navbar-center uk-visible@m">
-                <ul class="uk-navbar-nav">
+                <ul class="uk-navbar-nav">w
+                    <li><a href="/">Home</a></li>
                     <li><a href="/how-it-works">How it Works</a></li>
                     <li><a href="#">Press</a></li>
                 </ul>

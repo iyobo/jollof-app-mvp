@@ -1,6 +1,7 @@
 import {observable} from 'mobx';
 import RiceStore from './RiceStore';
 import SpoonStore from './SpoonStore';
+import UserStore from './UserStore';
 
 const axios = require('axios');
 
@@ -36,6 +37,7 @@ class Store {
     _init() {
         this.riceStore = new RiceStore(this);
         this.spoonStore = new SpoonStore(this);
+        this.userStore = new UserStore(this);
 
         this.authenticate(); //attempt to check if the user is logged in
     }

@@ -9,6 +9,42 @@ exports.getCurrentUser = async (ctx) => {
     ctx.body = user;
 }
 
+
+exports.updateUser = async (ctx) => {
+
+    const user = ctx.state.user;
+    const fields = ctx.request.fields;
+
+    //user is updating their profile
+    user.firstName = fields.firstName;
+    user.lastName = fields.lastName;
+    user.email = fields.email;
+
+    //check if a new password has been set.
+
+    if (fields.password && fields.password !== '') {
+        // If so, a local UserIdentity must be created if one doesn't yet exist, and that password must be set to the incoming password
+
+        const UserIdentity = jollof.models.UserIdentity;
+        const ui = await UserIdentity.findOneBy({ source: 'local', identityEmail: fields.email });
+
+        if (ui) {
+            ui.password = fields.password;
+            await ui.save()
+        }
+        else {
+            await UserIdentity.persist({
+                identityEmail: fields.email,
+                password: fields.password,
+                source: 'local'
+            })
+        }
+    }
+
+    await user.save();
+    ctx.body = user;
+}
+
 exports.doLogin = async (ctx) => {
 
     //Authenticate using the local strategy defined in app/service/passport/strategy

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {inject, observer} from 'mobx-react';
 import MediaList from '../../components/MediaList/MediaList';
-import MediaItem from '../../components/MediaList/MediaItem';
+
 
 @inject('store')
 @observer

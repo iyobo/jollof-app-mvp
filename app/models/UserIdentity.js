@@ -24,7 +24,7 @@ const schema = {
         identityEmail: String,
         password: { type: String, meta: { widget: 'password' } },
         identityKey: String,
-        accessToken: String,
+        accessToken: String
     },
     hooks: {
         preSave: async function () {

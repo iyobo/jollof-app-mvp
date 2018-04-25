@@ -39,6 +39,13 @@ const appRoutes = {
     'get /api/v1/me': { flow: [loggedIn, auth.getCurrentUser] },
     'patch /api/v1/me': { flow: [loggedIn, auth.updateUser] },
 
+    //Local password recovery
+    '/auth/recover-password': { flow: auth.recoverPassword },
+    'post /api/auth/recover-password': { flow: auth.doRecoverPassword },
+    '/auth/change-password': { flow: auth.changeRecoverPassword },
+    'patch /api/auth/change-password': { flow: auth.doChangeRecoverPassword },
+
+
     //dashboard. Can only access it when logged in
     '/dashboard*': { flow: [loggedIn, dashboard.index] },
 

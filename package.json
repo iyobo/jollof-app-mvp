@@ -14,9 +14,11 @@
     "dependencies": {
         "auto-sni": "^2.3.2",
         "boom": "^4.3.1",
+        "chance": "^1.0.13",
         "dotenv": "^5.0.1",
         "figlet": "^1.2.0",
         "got": "^7.1.0",
+        "highwayhash": "^2.3.0",
         "jollof": "^1.6.20",
         "jollof-data-arangodb": "^1.0.7",
         "jollof-data-mongodb": "^1.6.1",

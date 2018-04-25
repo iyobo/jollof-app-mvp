@@ -96,3 +96,8 @@ a{
     font-weight: 400;
 
 }
+
+label {
+    padding: 10px;
+    color: black;
+}

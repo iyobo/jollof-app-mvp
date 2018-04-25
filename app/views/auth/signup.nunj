@@ -1,88 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>JollofJS: Signup</title>
-    <link rel="stylesheet" href="/static/authpages/css/animate.css"/>
-    <link rel="stylesheet" href="/static/authpages/css/home.css"/>
-    <link rel="stylesheet" href="/static/authpages/css/login.css"/>
-    <link rel="stylesheet" href="/static/authpages/css/toastr.min.css"/>
+{% extends 'layouts/auth.nunj' %}
 
-    <!--     Fonts and icons     -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Economica|News+Cycle|Grand+Hotel|Open+Sans:400,300'
-          rel='stylesheet' type='text/css'>
-</head>
-<body id="background">
-<header>
+{% block title1 %}Signup{% endblock %}
+{% block title2 %}Signup{% endblock %}
 
-    <div class="maincover">
-        <div class="title">
-            <span>Sign Up</span>
+{% block content %}
+<div class="form">
+    <div id="msg" style="color: orangered; padding:2px;"></div>
+    <form id="signupForm" class="register-form">
+        <input type="hidden" name="_csrf" value="{{ csrf }}"/>
+        <input name="firstName" type="text" placeholder="First"/>
+        <input name="lastName" type="text" placeholder="Last"/>
+
+        <input name="email" type="text" placeholder="Email address"/>
+        <input name="password" type="password" placeholder="Password"/>
+
+        <input id="loginBtn" type="submit" class="button" value="Sign Up"/>
+        <p class="message">Already registered? <a href="/login">Log In</a></p>
+        <p class="message">Or <a  href="/auth/recover-password">Recover Password</a></p>
+    </form>
+    <div class="logmod__alter">
+        <div class="logmod__alter-container">
+            {#<a href="/auth/facebook" class="connect facebook">#}
+            {#<div class="connect__icon">#}
+            {#<i class="fa fa-facebook"></i>#}
+            {#</div>#}
+            {#<div class="connect__context">#}
+            {#<span>Sign up with <strong>Facebook</strong></span>#}
+            {#</div>#}
+            {#</a>#}
+            {#<a href="/auth/google" class="connect googleplus">#}
+            {#<div class="connect__icon">#}
+            {#<i class="fa fa-google-plus"></i>#}
+            {#</div>#}
+            {#<div class="connect__context">#}
+            {#<span>Sign up with <strong>Google+</strong></span>#}
+            {#</div>#}
+            {#</a>#}
+            {#<a href="/auth/instagram" class="connect instagram">#}
+            {#
+            <div class="connect__icon">#}
+            {#<i class="fa fa-instagram"></i>#}
+            {#
         </div>
-        <div class="backLink">
-            <a href="javascript:window.history.back();"><i class="fa fa-arrow-left"></i> Back </a>
+        #}
+            {#
+            <div class="connect__context">#}
+            {#<span>Sign up with <strong>Instagram</strong></span>#}
+            {#
         </div>
-
-        <div class="login-page">
-
-            <div class="form">
-                <div id="msg" style="color: orangered; padding:2px;"></div>
-                <form id="signupForm" class="register-form">
-                    <input type="hidden" name="_csrf" value="{{ csrf }}"/>
-                    <input name="firstName" type="text" placeholder="First"/>
-                    <input name="lastName" type="text" placeholder="Last"/>
-
-                    <input name="email" type="text" placeholder="Email address"/>
-                    <input name="password" type="password" placeholder="Password"/>
-
-                    <input id="loginBtn" type="submit" class="button" value="Sign Up"/>
-                    <p class="message">Already registered? <a href="/login">Log In</a></p>
-                </form>
-                <div class="logmod__alter">
-                    <div class="logmod__alter-container">
-                        <a href="/auth/facebook" class="connect facebook">
-                            <div class="connect__icon">
-                                <i class="fa fa-facebook"></i>
-                            </div>
-                            <div class="connect__context">
-                                <span>Sign up with <strong>Facebook</strong></span>
-                            </div>
-                        </a>
-                        <a href="/auth/google" class="connect googleplus">
-                            <div class="connect__icon">
-                                <i class="fa fa-google-plus"></i>
-                            </div>
-                            <div class="connect__context">
-                                <span>Sign up with <strong>Google+</strong></span>
-                            </div>
-                        </a>
-                        {#<a href="/auth/instagram" class="connect instagram">#}
-                        {#
-                        <div class="connect__icon">#}
-                            {#<i class="fa fa-instagram"></i>#}
-                            {#
-                        </div>
-                        #}
-                        {#
-                        <div class="connect__context">#}
-                            {#<span>Sign up with <strong>Instagram</strong></span>#}
-                            {#
-                        </div>
-                        #}
-                        {#</a>#}
-                    </div>
-                </div>
-            </div>
+        #}
+            {#</a>#}
         </div>
-
     </div>
+</div>
+{% endblock %}
 
-</header>
 
-<script type="text/javascript" src="/static/js/jquery-3.1.1.min.js"></script>
-<script src="/static/authpages/js/toastr.min.js"></script>
+{% block bottom %}
 <script type="text/javascript">
     $('.message a').click(function () {
         $('form').animate({ height: "toggle", opacity: "toggle" }, "medium");
@@ -110,6 +84,4 @@
 
 
 </script>
-
-</body>
-</html>
+{% endblock %}

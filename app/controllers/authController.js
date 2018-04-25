@@ -97,7 +97,7 @@ exports.doSignup = async (ctx) => {
     try {
         //notify
         await sendWelcomeUserEmail({ to: user.email, user })
-    }catch(err){
+    } catch (err) {
         console.error('issue with sending welcome email')
     }
 
@@ -132,6 +132,60 @@ exports.signup = async (ctx) => {
     } else {
         await ctx.render('auth/signup');
     }
+}
+
+/**
+ * Display page when user clicks on recover password..............
+ * @param ctx
+ * @returns {Promise<void>}
+ */
+exports.recoverPassword = async (ctx) => {
+    await ctx.render('auth/recoverPassword');
+}
+
+/**
+ * if user exists, Generates a recovery hash and send email
+ * @param ctx
+ * @returns {Promise<void>}
+ */
+exports.doRecoverPassword = async (ctx) => {
+    const email = ctx.request.fields.email;
+
+    //does user exist in system?
+    const user = await jollof.models.findBy({email});
+
+    //if user exists, inisitate password recovery protocol
+    if(user){
+        await jollof.models.PasswordRecovery.create({email, user});
+    }
+
+
+    ctx.body = 'Recovery triggered';
+
+}
+
+/**
+ * Show page where user enters new password
+ * @param ctx
+ * @returns {Promise<void>}
+ */
+exports.changeRecoverPassword = async (ctx) => {
+    await ctx.render('auth/changeRecoverPassword');
+
+    //
+
+}
+
+/**
+ * update userIdentity
+ * @param ctx
+ * @returns {Promise<void>}
+ */
+exports.doChangeRecoverPassword = async (ctx) => {
+    const password = ctx.request.fields.password;
+
+
+
 }
 
 

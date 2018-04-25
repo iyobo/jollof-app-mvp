@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ config.name }}: {% block title1 %}Login{% endblock %}</title>
+    <link rel="stylesheet" href="/static/authpages/css/animate.css"/>
+    <link rel="stylesheet" href="/static/authpages/css/home.css"/>
+    <link rel="stylesheet" href="/static/authpages/css/login.css"/>
+    <link rel="stylesheet" href="/static/authpages/css/toastr.min.css"/>
+
+    <!--     Fonts and icons     -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Economica|News+Cycle|Grand+Hotel|Open+Sans:400,300'
+          rel='stylesheet' type='text/css'>
+    {% block head %}{% endblock %}
+</head>
+<body id="background">
+<header>
+    <div class="maincover">
+        <div class="title">
+            <span>{% block title2 %}Login{% endblock %}</span>
+        </div>
+        <div class="backLink">
+            <a href="javascript:window.history.back();"><i class="fa fa-arrow-left"></i> Back </a>
+        </div>
+        <div class="login-page">
+
+            {% block content %}{% endblock %}
+        </div>
+
+
+
+    </div>
+
+</header>
+
+<script type="text/javascript" src="/static/js/jquery-3.1.1.min.js"></script>
+<script src="/static/authpages/js/toastr.min.js"></script>
+
+
+{% block bottom %}{% endblock %}
+
+</body>
+</html>

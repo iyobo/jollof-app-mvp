@@ -1,6 +1,6 @@
 const boom = require('boom');
 const jollof = require('jollof');
-const sendWelcomeUserEmail = require('../services/mailService').sendWelcomeUserEmail;
+const sendWelcomeUserEmail = require('../services/mailService').sendWelcomeUser;
 
 exports.getCurrentUser = async (ctx) => {
 
@@ -67,7 +67,6 @@ exports.doLogin = async (ctx) => {
     } else {
         return ctx.throw(new boom.notFound('Invalid Credentials'));
     }
-
 
 };
 

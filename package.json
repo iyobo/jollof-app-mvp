@@ -27,6 +27,7 @@
         "koa-passport": "^4.0.1",
         "lodash": "^4.17.5",
         "node-mailjet": "^3.2.1",
+        "nunjucks": "^3.1.2",
         "passport-facebook": "^2.1.1",
         "passport-google-oauth20": "^1.0.0",
         "passport-instagram": "^1.0.0",

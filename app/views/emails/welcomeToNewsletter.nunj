@@ -1,0 +1,8 @@
+{% include 'emailBase.nunj' %}
+
+{% block content %}
+    <h1>Hi {{ firstName }}</h1>
+
+    <p>Thanks for joining the <b>{{ appName }}</b> Newsletter.</p>
+
+{% endblock %}

@@ -152,11 +152,11 @@ exports.doRecoverPassword = async (ctx) => {
     const email = ctx.request.fields.email;
 
     //does user exist in system?
-    const user = await jollof.models.findBy({email});
+    const user = await jollof.models.User.findOneBy({ email });
 
-    //if user exists, inisitate password recovery protocol
-    if(user){
-        await jollof.models.PasswordRecovery.create({email, user});
+    //if user exists, initiate password recovery protocol
+    if (user) {
+        await jollof.models.PasswordRecovery.create({ email, user: user.id });
     }
 
 
@@ -167,24 +167,52 @@ exports.doRecoverPassword = async (ctx) => {
 /**
  * Show page where user enters new password
  * @param ctx
+ * @param ctx.params.rtok
  * @returns {Promise<void>}
  */
 exports.changeRecoverPassword = async (ctx) => {
+    const rtok = ctx.params.rtok;
+
+    ctx.state.rtok = rtok;
+    const pr = await jollof.models.PasswordRecovery.findOneBy({ recoveryHash: rtok });
+
+    if (!pr) throw new boom.notFound('No such thing')
+
     await ctx.render('auth/changeRecoverPassword');
-
-    //
-
 }
 
 /**
  * update userIdentity
  * @param ctx
+ * * @param ctx.params.rtok
  * @returns {Promise<void>}
  */
 exports.doChangeRecoverPassword = async (ctx) => {
     const password = ctx.request.fields.password;
+    const rtok = ctx.params.rtok;
 
+    const jm = jollof.models;
+    const pr = await jm.PasswordRecovery.findOneBy({ recoveryHash: rtok });
 
+    if (!pr) throw new boom.notFound('No such thing')
+
+    /*
+    Change password
+    */
+
+    const user = await jm.User.findById(pr.user);
+    let ui = await jm.UserIdentity.findOneBy({ identityEmail: user.email, source: 'local'});
+
+    if(user && ui){
+        ui.password = password;
+        await ui.save();
+    }
+    else if( user && !ui){
+        ui = new jm.UserIdentity({identityEmail: user.email, password, source: 'local', user: user.id})
+        await ui.save();
+    }
+
+    ctx.body = true;
 
 }
 

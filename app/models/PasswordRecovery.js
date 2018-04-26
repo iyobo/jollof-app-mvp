@@ -3,8 +3,7 @@
  */
 
 const jollof = require('jollof');
-const hasher = require('highwayhash');
-const chance = require('chance');
+const chance = new require('chance')();
 const data = jollof.data;
 const types = data.types;
 

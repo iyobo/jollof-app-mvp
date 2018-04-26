@@ -42,8 +42,8 @@ const appRoutes = {
     //Local password recovery
     '/auth/recover-password': { flow: auth.recoverPassword },
     'post /api/auth/recover-password': { flow: auth.doRecoverPassword },
-    '/auth/change-password': { flow: auth.changeRecoverPassword },
-    'patch /api/auth/change-password': { flow: auth.doChangeRecoverPassword },
+    '/auth/change-password/:rtok': { flow: auth.changeRecoverPassword },
+    'post /api/auth/change-password/:rtok': { flow: auth.doChangeRecoverPassword },
 
 
     //dashboard. Can only access it when logged in

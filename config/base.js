@@ -14,7 +14,7 @@ module.exports = {
         host: 'localhost',
         port: 3001,
         httpsPort: 3002,
-        address: 'http://localhost',
+        addressString: 'http://localhost:3001', //Used by external back-references to your site
         useSSL: false,
         domains: ['localhost'] //list of SSL domains for SSL certificate generation. This will fail as localhost is invalid for such. Overwrite in production config
     },
@@ -81,16 +81,17 @@ module.exports = {
         },
     },
 
-    /**
-     * This web app comes with Mailjet configured.
-     * Mailjet is an awesome mailing api that makes email communication simply.
-     * You can help support JollofJS by using our referral link to Create a new Mailjet account:
-     * http://mailjet.com
-     */
+
     mail: {
         from: 'hello@jollofuser.com', // replace with from email
         fromName: "Jollof User", //replace with from email name
 
+        /**
+         * This web app comes with Mailjet configured.
+         * Mailjet is an awesome mailing api that makes email communication simple. See mailService.js
+         * You can help support JollofJS by using our referral link to Create a new Mailjet account:
+         * http://mailjet.com
+         */
         mailjet: {
             key: '*MY MAILJET KEY*', //replace
             secret: '*MY SECRET KEY*' //replace
@@ -113,6 +114,9 @@ module.exports = {
             twitterUrl: '',
             githubUrl: '',
             linkedInUrl: '',
+        },
+        auth: {
+
         }
     },
 

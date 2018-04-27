@@ -1,5 +1,6 @@
 const boom = require('boom');
 const jollof = require('jollof');
+const sendForgotPassword = require('../services/mailService').sendForgotPassword;
 const sendWelcomeUserEmail = require('../services/mailService').sendWelcomeUser;
 
 exports.getCurrentUser = async (ctx) => {
@@ -95,7 +96,7 @@ exports.doSignup = async (ctx) => {
 
     try {
         //notify
-        await sendWelcomeUserEmail({ to: user.email, user })
+        await sendWelcomeUserEmail(user.email, user)
     } catch (err) {
         console.error('issue with sending welcome email')
     }
@@ -155,12 +156,11 @@ exports.doRecoverPassword = async (ctx) => {
 
     //if user exists, initiate password recovery protocol
     if (user) {
-        await jollof.models.PasswordRecovery.create({ email, user: user.id });
+        const pr = await jollof.models.PasswordRecovery.create({ email, user: user.id });
+        await sendForgotPassword(email, user, pr.recoveryHash);
     }
 
-
     ctx.body = 'Recovery triggered';
-
 }
 
 /**
@@ -200,14 +200,14 @@ exports.doChangeRecoverPassword = async (ctx) => {
     */
 
     const user = await jm.User.findById(pr.user);
-    let ui = await jm.UserIdentity.findOneBy({ identityEmail: user.email, source: 'local'});
+    let ui = await jm.UserIdentity.findOneBy({ identityEmail: user.email, source: 'local' });
 
-    if(user && ui){
+    if (user && ui) {
         ui.password = password;
         await ui.save();
     }
-    else if( user && !ui){
-        ui = new jm.UserIdentity({identityEmail: user.email, password, source: 'local', user: user.id})
+    else if (user && !ui) {
+        ui = new jm.UserIdentity({ identityEmail: user.email, password, source: 'local', user: user.id })
         await ui.save();
     }
 

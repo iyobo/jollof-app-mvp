@@ -8,11 +8,11 @@
     <div id="msg" style="color: orangered; padding:2px;"></div>
     <form id="signupForm" class="register-form">
         <input type="hidden" name="_csrf" value="{{ csrf }}"/>
-        <input name="firstName" type="text" placeholder="First"/>
-        <input name="lastName" type="text" placeholder="Last"/>
+        <input required name="firstName" type="text" placeholder="First"/>
+        <input required name="lastName" type="text" placeholder="Last"/>
 
-        <input name="email" type="text" placeholder="Email address"/>
-        <input name="password" type="password" placeholder="Password"/>
+        <input required name="email" type="text" placeholder="Email address"/>
+        <input required name="password" type="password" placeholder="Password"/>
 
         <input id="loginBtn" type="submit" class="button" value="Sign Up"/>
         <p class="message">Already registered? <a href="/login">Log In</a></p>

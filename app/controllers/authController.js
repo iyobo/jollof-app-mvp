@@ -156,7 +156,9 @@ exports.doRecoverPassword = async (ctx) => {
 
     //if user exists, initiate password recovery protocol
     if (user) {
-        const pr = await jollof.models.PasswordRecovery.create({ email, user: user.id });
+        const expiresOn = new Date();
+        expiresOn.setHours(expiresOn.getHours() + (jollof.config.passport.resetExpiryHours || 72));
+        const pr = await jollof.models.PasswordRecovery.create({ email, user: user.id, used: false, expiresOn});
         await sendForgotPassword(email, user, pr.recoveryHash);
     }
 
@@ -172,10 +174,17 @@ exports.doRecoverPassword = async (ctx) => {
 exports.changeRecoverPassword = async (ctx) => {
     const rtok = ctx.params.rtok;
 
-    ctx.state.rtok = rtok;
-    const pr = await jollof.models.PasswordRecovery.findOneBy({ recoveryHash: rtok });
+    //recovery token must not have been used and must not be expired
 
-    if (!pr) throw new boom.notFound('No such thing')
+    const pr = await jollof.models.PasswordRecovery.findOne([
+        ['recoveryHash', '=', rtok],
+        ['used', '!=', true],
+        ['expiresOn','>', new Date()]
+    ]);
+
+    ctx.state.rtok = rtok;
+
+    if (!pr) throw new boom.notFound('Invalid or expired password reset token')
 
     await ctx.render('auth/changeRecoverPassword');
 }
@@ -191,9 +200,13 @@ exports.doChangeRecoverPassword = async (ctx) => {
     const rtok = ctx.params.rtok;
 
     const jm = jollof.models;
-    const pr = await jm.PasswordRecovery.findOneBy({ recoveryHash: rtok });
+    const pr = await jollof.models.PasswordRecovery.findOne([
+        ['recoveryHash', '=', rtok],
+        ['used', '!=', true],
+        ['expiresOn','>', new Date()]
+    ]);
 
-    if (!pr) throw new boom.notFound('No such thing')
+    if (!pr) throw new boom.notFound('Invalid or expired passwor reset token')
 
     /*
     Change password
@@ -210,6 +223,10 @@ exports.doChangeRecoverPassword = async (ctx) => {
         ui = new jm.UserIdentity({ identityEmail: user.email, password, source: 'local', user: user.id })
         await ui.save();
     }
+
+    //now change the pr
+    pr.used = true;
+    await pr.save();
 
     ctx.body = true;
 

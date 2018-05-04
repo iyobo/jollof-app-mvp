@@ -5,9 +5,6 @@
 
 {% block content %}
 <div class="form">
-    <div class="title">
-        <span>Login</span>
-    </div>
     <div id="msg" style="color: orangered; padding:2px;"></div>
     <form id="loginform" class="login-form">
         <input type="hidden" name="_csrf" value="{{ csrf }}"/>

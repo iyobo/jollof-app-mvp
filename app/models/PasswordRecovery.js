@@ -13,7 +13,9 @@ const schema = {
     structure: {
         user: types.Ref({ required: true, meta: { ref: 'User' } }),
         email: { type: String, required: true },
-        recoveryHash: { type: String, meta: { disableEdit: true } }
+        recoveryHash: { type: String, meta: { disableEdit: true } },
+        used: Boolean,
+        expiresOn: Date
     },
 
     native: {

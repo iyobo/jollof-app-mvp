@@ -175,7 +175,8 @@ exports.sendForgotPassword = async (to, user, recoveryHash) => {
     return await sendTemplateEmail(to, "Did you forget your password?", "forgotPassword", {
         appName: config.name,
         firstName: user.firstName,
-        recoveryUrl
+        recoveryUrl,
+        expiryHours: config.passport.resetExpiryHours || 72
     });
 }
 

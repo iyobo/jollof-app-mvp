@@ -140,9 +140,12 @@ module.exports = {
     },
 
     /**
-     * OAuth and other passport related stuff
+     * OAuth and other auth related stuff
      */
     passport: {
+        resetExpiryHours: 72, // How many hours password reset links last
+
+        //Used for Oauth
         facebook: {
             clientID: 'abc',
             clientSecret: 'abcd',

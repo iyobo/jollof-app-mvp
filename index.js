@@ -1,6 +1,6 @@
 require('moment').locale();
 require('dotenv').config();
-require('./app/util/util').hijackConsole()
+
 
 
 const jollof = require('jollof');
@@ -15,11 +15,11 @@ console.log('useSSL: ',useSSL);
 
 (async () => {
 
-    //Add spices here
+    //SPICES are no longer supported
     //await require('jollof-spice-blog')(jollof);
 
 
-    const server = await jollof.bootstrap.bootServer(function* (app) {
+    const server = await jollof.bootstrap.bootServer(function* (koaApp) {
 
         //add overrides / things to add to koa app before it gets launched
 
@@ -29,25 +29,25 @@ console.log('useSSL: ',useSSL);
          * You could implement any plugin supported by Koa here.
          */
 
-        app.proxy = true;
+        koaApp.proxy = true;
 
         /**
          * Setup custom Auth. This scaffold app wires together a quick passport auth framework for you.
          * However, JollofJS is not dependent on any of these and you can rip it out and use whatever
          * authentication/authorization wiring you need for your app.
          */
-        app.use(passport.initialize());
-        app.use(passport.session());
-        app.use(convert(function* (next) {
+        koaApp.use(passport.initialize());
+        koaApp.use(passport.session());
+        koaApp.use(convert(function* (next) {
             this.passport = passport;
             this.state.originalUrl = this.request.originalUrl;
             return yield next;
         }));
-        app.use(gzip());
+        koaApp.use(gzip());
 
 
         //Setup passport auth strategies
-        require('./app/services/passport/strategies').setupStrategies(app, passport);
+        require('./app/services/passport/strategies').setupStrategies(koaApp, passport);
 
 
         //Let's encrypt SSL
@@ -60,7 +60,7 @@ console.log('useSSL: ',useSSL);
                     http: jollof.config.server.port,
                     https: jollof.config.server.httpsPort
                 },
-            }, app.callback());
+            }, koaApp.callback());
         }
 
     }, useSSL);

@@ -1,7 +1,7 @@
 <footer class="uk-section uk-section-default uk-section-small" uk-sticky="bottom: true">
     <div class="uk-container">
         <p class="uk-text-small uk-text-center">
-            Copyright Me 2017 - Powered by <a href="http://jolofjs.com">JollofJS</a>.
+            © 2017 - Powered by <a target="_blank" href="http://jollofjs.com">JollofJS</a>.
         </p>
     </div>
 </footer>

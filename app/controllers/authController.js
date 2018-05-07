@@ -1,7 +1,8 @@
 const boom = require('boom');
 const jollof = require('jollof');
-const sendForgotPassword = require('../services/mailService').sendForgotPassword;
-const sendWelcomeUserEmail = require('../services/mailService').sendWelcomeUser;
+const sendPasswordChangedNotice = require('../services/actions/email/userEmailActions').sendPasswordChangedNotice;
+const sendForgotPassword = require('../services/actions/email/userEmailActions').sendForgotPassword;
+const sendWelcomeUserEmail = require('../services/actions/email/userEmailActions').sendWelcomeUser;
 
 exports.getCurrentUser = async (ctx) => {
 
@@ -98,7 +99,7 @@ exports.doSignup = async (ctx) => {
         //notify
         await sendWelcomeUserEmail(user.email, user)
     } catch (err) {
-        console.error('issue with sending welcome email')
+        console.error('issue with sending welcome email', err)
     }
 
     //Use email of new user as username
@@ -206,7 +207,7 @@ exports.doChangeRecoverPassword = async (ctx) => {
         ['expiresOn','>', new Date()]
     ]);
 
-    if (!pr) throw new boom.notFound('Invalid or expired passwor reset token')
+    if (!pr) throw new boom.notFound('Invalid or expired password reset token')
 
     /*
     Change password
@@ -227,6 +228,8 @@ exports.doChangeRecoverPassword = async (ctx) => {
     //now change the pr
     pr.used = true;
     await pr.save();
+
+    await sendPasswordChangedNotice(user.email, user);
 
     ctx.body = true;
 

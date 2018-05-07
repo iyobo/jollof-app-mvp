@@ -134,49 +134,5 @@ const addContact = exports.addContact = async (user, sendWelcome) => {
 
 }
 
-// ===========Action messages
-/**
- * Yay! We got a new user.
- *
- * @param to
- * @param user
- * @param avoidNewsletter
- * @returns {Promise<*>}
- */
-exports.sendWelcomeUser = async (to, user, avoidNewsletter) => {
 
-    if (!avoidNewsletter)
-        await addContact(user);
-
-    return await sendTemplateEmail(to, `Welcome to ${config.name}`, 'welcomeUser', {
-        appName: config.name,
-        firstName: user.firstName
-    });
-}
-
-/**
- * Send a welcome email to new subs to our newsletter
- * @param to
- * @returns {Promise<*>}
- */
-exports.sendSubscriptionWelcomeEmail = async (to, user) => {
-
-    return await sendTemplateEmail(to, "You're on the List", "welcomeToNewsLetter", {
-        appName: config.name,
-        firstName: user.firstName
-    });
-}
-
-exports.sendForgotPassword = async (to, user, recoveryHash) => {
-
-    const cs = config.server;
-    const recoveryUrl = cs.addressString + '/auth/change-password/' + recoveryHash;
-
-    return await sendTemplateEmail(to, "Did you forget your password?", "forgotPassword", {
-        appName: config.name,
-        firstName: user.firstName,
-        recoveryUrl,
-        expiryHours: config.passport.resetExpiryHours || 72
-    });
-}
 

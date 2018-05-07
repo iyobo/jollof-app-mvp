@@ -66,5 +66,6 @@ console.log('useSSL: ',useSSL);
     }, useSSL);
 
     console.log(`\n${require('figlet').textSync('JollofJS')} \n ><><><><><><><><><><><><><><><><><><><`);
+    console.log('App:',jollof.config.server.addressString)
 
 })();

@@ -1,6 +1,6 @@
 const jollof = require('jollof');
 const config = jollof.config;
-const sendWelcomeUserEmail = require('../mailService').sendWelcomeUser;
+const sendWelcomeUserEmail = require('../actions/email/userEmailActions').sendWelcomeUser;
 const User = jollof.models.User;
 const UserIdentity = jollof.models.UserIdentity;
 const crypto = jollof.crypto;

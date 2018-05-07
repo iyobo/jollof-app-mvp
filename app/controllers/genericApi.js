@@ -4,7 +4,7 @@
 
 const jollof = require('jollof');
 const Boom = require('boom');
-const sendWelcomeUserEmail = require('../services/mailService').sendWelcomeUser;
+const sendWelcomeUserEmail = require('../services/actions/email/userEmailActions').sendWelcomeUser;
 
 
 exports.getItems = async (modelName, ctx) => {

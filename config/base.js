@@ -108,6 +108,7 @@ module.exports = {
             subTitle: 'Powered by JollofJS',
 
             auth: auth.loggedIn,
+            userModelName: 'User',
             mountPath: '/blog',
 
             facebookUrl: '',

@@ -16,7 +16,7 @@ console.log('useSSL: ',useSSL);
 (async () => {
 
     //SPICES are no longer supported
-    //await require('jollof-spice-blog')(jollof);
+    await require('jollof-spice-template')(jollof);
 
 
     const server = await jollof.bootstrap.bootServer(function* (koaApp) {

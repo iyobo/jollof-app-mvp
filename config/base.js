@@ -104,12 +104,12 @@ module.exports = {
      */
     spices: {
         blog: {
+            mountPath: '/blog', // required for all spices
+            userModelName: 'User',
+            auth: auth.loggedIn,
+
             title: 'The Journey so Far',
             subTitle: 'Powered by JollofJS',
-
-            auth: auth.loggedIn,
-            userModelName: 'User',
-            mountPath: '/blog',
 
             facebookUrl: '',
             twitterUrl: '',

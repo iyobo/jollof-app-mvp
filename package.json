@@ -21,7 +21,7 @@
         "jollof": "^1.6.22",
         "jollof-data-arangodb": "^1.0.7",
         "jollof-data-mongodb": "^1.6.2",
-        "jollof-spice-blog": "^0.6.22",
+        "jollof-spice-blog": "^1.5.0",
         "koa-convert": "^1.2.0",
         "koa-gzip": "^0.1.0",
         "koa-passport": "^4.0.1",

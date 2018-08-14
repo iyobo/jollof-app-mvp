@@ -1,7 +1,15 @@
 <footer class="uk-section uk-section-default uk-section-small" uk-sticky="bottom: true">
     <div class="uk-container">
+
+        {% include "snippets/navmenu.nunj" %}
+
+
         <p class="uk-text-small uk-text-center">
-            © 2017 - Powered by <a target="_blank" href="http://jollofjs.com">JollofJS</a>.
+            © 2017 - Powered by
+            <a target="_blank" href="http://jollofjs.com" alt="JollofJS" uk-tooltip="title: JollofJS">
+                <img width="32px"
+                     src="/static/images/logo.png"/>
+            </a>
         </p>
     </div>
 </footer>

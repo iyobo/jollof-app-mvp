@@ -1,5 +1,5 @@
 /**
- * Created by Tobi Kehinde on 2018-01-20.
+ * Created by Iyobo Eki on 2018-01-20.
  */
 
 const jollof = require('jollof');
@@ -25,8 +25,10 @@ const schema = {
             }
         },
         arangodb: {
+
             async init() {
 
+                await this.db.collection('PasswordRecovery').createSkipList(['recoveryHash'],{ unique: true });
             },
         }
     },

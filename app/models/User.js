@@ -1,7 +1,4 @@
 /**
- * Created by iyobo on 2017-01-10.
- */
-/**
  * Created by iyobo on 2016-09-18.
  */
 const jollof = require('jollof');
@@ -79,7 +76,7 @@ const schema = {
         },
         arangodb: {
             async init() {
-
+                await this.db.collection('User').createSkipList(['email'],{ unique: true });
             },
         }
 

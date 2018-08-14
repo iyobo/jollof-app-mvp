@@ -24,23 +24,26 @@ module.exports = {
      */
     data: {
         dataSources: {
+            // default: { //in case you prefer mongodb as your default datasource
+            //     adapter: require('jollof-data-mongodb'),
+            //     nativeType: 'mongodb',
+            //     options: {
+            //         mongoUrl: 'mongodb://localhost/jollofmvp'
+            //     }
+            // },
+
+
+            //Using ArangoDB by default. A solid modern Database. Google it.
             default: {
-                adapter: require('jollof-data-mongodb'),
-                nativeType: 'mongodb',
-                options: {
-                    mongoUrl: 'mongodb://localhost/jollofmvp'
-                }
+               adapter: require('jollof-data-arangodb'),
+               nativeType: 'arangodb',
+               options: {
+                   url: null, //uses localhost:8529 by default if this value is falsy
+                   databaseName: 'jollofmvp',
+                   username: 'root',
+                   password: ''
+               }
             },
-            //arangodb: { //in case you hate mongoDB!
-            //    adapter: require('jollof-data-arangodb'),
-            //    nativeType: 'arangodb',
-            //    options: {
-            //        url: null, //uses localhost:8529 by default if this value is falsy
-            //        databaseName: 'jollofmvp',
-            //        username: 'root',
-            //        password: ''
-            //    }
-            //},
         }
     },
 

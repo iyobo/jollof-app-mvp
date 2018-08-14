@@ -48,7 +48,7 @@ const schema = {
         },
         arangodb: {
             async init() {
-
+                await this.db.collection('UserIdentity').createSkipList(['source', 'identityEmail'],{ unique: true });
             },
         }
     }

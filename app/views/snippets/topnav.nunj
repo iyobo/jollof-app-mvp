@@ -5,15 +5,11 @@
             <div class="uk-navbar-left">
 
                 <a class="uk-navbar-item uk-logo" href="/">
-                    <img class="uk-navbar-item" src="/static/images/logo.png"/> Your App</a>
+                    <img class="uk-navbar-item" src="/static/images/logo.png"/> {{config.name}}</a>
             </div>
 
             <div class="uk-navbar-center uk-visible@m">
-                <ul class="uk-navbar-nav">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/how-it-works">How it Works</a></li>
-                    <li><a href="/blog">Press</a></li>
-                </ul>
+                {% include "snippets/navmenu.nunj" %}
             </div>
 
             <div class="uk-navbar-right">

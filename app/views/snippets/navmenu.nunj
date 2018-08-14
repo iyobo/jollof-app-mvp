@@ -1,0 +1,5 @@
+<ul class="uk-navbar-nav">
+    <li><a href="/">Home</a></li>
+    <li><a href="/works">How it works</a></li>
+    <li><a href="/hello">Contacts</a></li>
+</ul>

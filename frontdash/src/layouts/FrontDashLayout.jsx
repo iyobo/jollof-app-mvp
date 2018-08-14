@@ -16,10 +16,7 @@ class FrontDashLayout extends Component {
                             <ul class="uk-nav-primary uk-nav-pill uk-nav-parent-icon " uk-nav="">
                                 <li class={this.props.location.pathname.startsWith('/profile') ? 'uk-active' : ''}>
                                     <Link to='profile'>Profile</Link></li>
-                                <li class={this.props.location.pathname.startsWith('/spoon') ? 'uk-active' : ''}>
-                                    <Link to='spoon'>Spoon</Link></li>
-                                <li class={this.props.location.pathname.startsWith('/rice') ? 'uk-active' : ''}>
-                                    <Link to='rice'>Rice</Link></li>
+
                             </ul>
 
                         </div>
@@ -29,6 +26,7 @@ class FrontDashLayout extends Component {
                             <div class="uk-padding">
                                 <Switch>
                                     <Route path="/profile" name="Profile" component={ProfilePage}/>
+                                    {/*hidden*/}
                                     <Route path="/spoon" name="Spoon" component={SpoonListPage}/>
                                     <Route path="/rice" name="Rice" component={RiceListPage}/>
 

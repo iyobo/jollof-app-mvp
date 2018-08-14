@@ -18,7 +18,7 @@
         "babel-preset-mobx": "^1.0.2",
         "babel-preset-react": "^6.24.1",
         "webpack": "^4.0.1",
-        "webpack-cli": "^2.0.9"
+        "webpack-cli": "^2.1.5"
     },
     "dependencies": {
         "axios": "^0.18.0",

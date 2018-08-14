@@ -4,7 +4,7 @@
 * Install NodeJs v8.x (Preferably via NVM)
 * npm i -g npm@4
 * Install yarn [https://yarnpkg.com/lang/en/docs/install/](https://yarnpkg.com/lang/en/docs/install/)
-* Install MongoDB
+* Install ArangoDB
 * Install Redis
 * `npm i -g jollofjs`
 * `yarn install`

@@ -101,35 +101,6 @@ module.exports = {
         }
     },
 
-    /**
-     * Jollof spices are mountable apps.
-     * This is where you put all spice-centric config.
-     */
-    spices: {
-        blog: {
-            mountPath: '/blog', // required for all spices
-            userModelName: 'User',
-            auth: auth.loggedIn,
-
-            title: 'The Journey so Far',
-            subTitle: 'Powered by JollofJS',
-
-            facebookUrl: '',
-            twitterUrl: '',
-            githubUrl: '',
-            linkedInUrl: '',
-        },
-        auth: {
-
-        }
-    },
-
-    /**
-     * Place to put your own app-specific configs
-     */
-    app: {
-        freeGeoIpHost: "http://freegeoip.net/json/" //+ip
-    },
 
     /**
      * Place to put 3rd party configs
